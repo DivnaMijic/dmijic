@@ -1,0 +1,58 @@
+export const carouselImages = {
+  ameliaHeirrWebsite: [
+    "media/images/amelia-heirr-website-1.png",
+    "media/images/amelia-heirr-website-2.png",
+    "media/images/amelia-heirr-website-3.png",
+    "media/images/amelia-heirr-website-4.png",
+    "media/images/amelia-heirr-website-5.png",
+    "media/images/amelia-heirr-website-6.png",
+  ],
+  WFLZadar: [
+    "media/images/wfl-zadar-1.png",
+    "media/images/wfl-zadar-2.png",
+    "media/images/wfl-zadar-3.png",
+    "media/images/wfl-zadar-4.png",
+    "media/images/wfl-zadar-5.png",
+    "media/images/wfl-zadar-6.png",
+    "media/images/wfl-zadar-7.png",
+  ],
+
+  WFLZagreb: [
+    "media/images/wfl-zagreb-1.png",
+    "media/images/wfl-zagreb-2.png",
+    "media/images/wfl-zagreb-3.png",
+    "media/images/wfl-zagreb-4.png",
+    "media/images/wfl-zagreb-5.png",
+    "media/images/wfl-zagreb-6.png",
+    "media/images/wfl-zagreb-7.png",
+  ],
+
+  planetAyurveda: [
+    "media/images/planet-1.png",
+    "media/images/planet-2.png",
+    "media/images/planet-3.png",
+    "media/images/planet-4.png",
+    "media/images/planet-5.png",
+    "media/images/planet-6.png",
+    "media/images/planet-7.png",
+    "media/images/planet-8.png",
+    "media/images/planet-9.png",
+    "media/images/planet-10.png",
+  ],
+
+  WFLRedeemVoucher: [
+    "media/images/redeem-voucher-1.png",
+    "media/images/redeem-voucher-2.png",
+    "media/images/redeem-voucher-3.png",
+    "media/images/redeem-voucher-4.png",
+    "media/images/redeem-voucher-5.png",
+    "media/images/redeem-voucher-6.png",
+    "media/images/redeem-voucher-7.png",
+    "media/images/redeem-voucher-8.png",
+    "media/images/redeem-voucher-9.png",
+    "media/images/redeem-voucher-10.png",
+    "media/images/redeem-voucher-11.png",
+    "media/images/redeem-voucher-12.png",
+    "media/images/redeem-voucher-13.png",
+  ],
+};
