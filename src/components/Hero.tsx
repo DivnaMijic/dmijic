@@ -91,8 +91,8 @@ const Hero: React.FC = () => {
           objectPosition: "center", // center it so you don't just see bottom half
         }}
       >
-        <source src="/media/videos/hero_page_video.mp4" type="video/mp4" />
-        <source src="/media/videos/hero-bg.webm" type="video/webm" />
+        <source src="public/media/videos/hero-bg.mp4" type="video/mp4" />
+        <source src="public/media/videos/hero-bg.webm" type="video/webm" />
       </video>
       <div className="absolute inset-0 bg-black/20 -z-10"></div>
 

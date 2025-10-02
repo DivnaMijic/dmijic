@@ -3,11 +3,11 @@ import React from "react";
 const Experience: React.FC = () => {
   return (
     <section id="experience" className="relative w-screen h-screen flex ">
-      <div id="sideNavSpace" className="h-screen w-[12vw] bg-yellow-100"></div>
+      <div id="sideNavSpace" className="h-screen w-[12vw]"></div>
 
       <video
         className="absolute top-0 left-0 w-full h-full object-cover "
-        src="/media/videos/website-bg.mp4"
+        src="public/media/videos/website-bg.mp4"
         autoPlay
         loop
         muted

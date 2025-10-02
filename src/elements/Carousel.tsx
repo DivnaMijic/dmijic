@@ -43,7 +43,7 @@ const Carousel: React.FC<CarouselProps> = ({
         className="absolute top-1/2 -left-16 transform -translate-y-1/2 p-2 bg-transparent z-50"
       >
         <img
-          src="/media/icons/arrow-left.png"
+          src="public/media/icons/arrow-left.png"
           alt="Previous"
           className="w-8 h-8"
         />
@@ -53,7 +53,7 @@ const Carousel: React.FC<CarouselProps> = ({
         className="absolute top-1/2 -right-16 transform -translate-y-1/2 p-2 bg-transparent z-50"
       >
         <img
-          src="/media/icons/arrow-right.png"
+          src="public/media/icons/arrow-right.png"
           alt="Next"
           className="w-8 h-8"
         />
