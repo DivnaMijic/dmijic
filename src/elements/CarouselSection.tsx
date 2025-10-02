@@ -34,15 +34,29 @@ const CarouselSection: React.FC<Props> = ({
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-[75vw] justify-between bg-black-100 flex text-left items-center py-4 text-xl font-bold focus:outline-none rounded-none border-b border-gray-300"
+        className="w-[75vw] flex items-center font-center py-4 focus:outline-none text-center rounded-none "
       >
-        <span>Click for Project information</span>
-        <span className="text-lg">{isOpen ? "-" : "+"}</span>
+        {/* Left: Title */}
+        <span className="flex-[2] text-xl font-bold text-center">{title}</span>
+
+        {/* Divider */}
+        <span className="mx-4 h-6 border-l border-gray-400"></span>
+
+        {/* Date */}
+        <span className="flex-[1] text-lg text-center">21st March 2025</span>
+
+        {/* Divider */}
+        <span className="mx-4 h-6 border-l border-gray-400"></span>
+
+        {/* Right: Show/Hide */}
+        <span className="flex-[1] text-center text-lg">
+          {isOpen ? "hide details -" : "show details +"}
+        </span>
       </button>
 
       {/* Collapsible Content */}
       {isOpen && (
-        <div className="w-[75vw] bg-pink-100 p-6 rounded-lg flex ">
+        <div className="w-[75vw] bg-[#F7F7F7] p-6 mt-2 flex ">
           {/* left Content */}
           <div
             id="left-content"
@@ -79,7 +93,7 @@ const CarouselSection: React.FC<Props> = ({
             )}
           </div>
           {/* Right content */}
-          <div className="flex h-[20vh] items-center justify-center  px-10">
+          <div className="flex h-[20vh] items-center justify-center px-10">
             <p>{description}</p>
           </div>
         </div>

@@ -13,7 +13,7 @@ export const carouselSections = [
   },
   {
     id: "WFLZadar",
-    title: "Wings for Life guide Zadar 2024",
+    title: "Wings for Life Race Guide, Zadar 2024",
     tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
     description:
       "Document to help participants understand the purpose, registration process, and format of the Wings for Life World Run charity race, which the Helping Paws Volunteer Club will be joining and encouraging others to participate.",
@@ -21,7 +21,7 @@ export const carouselSections = [
   },
   {
     id: "WFLZagreb",
-    title: "Wings for Life guide Zagreb 2024",
+    title: "Wings for Life Race Guide, Zagreb 2024",
     tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
     description:
       "Document to help participants understand the purpose, registration process, and format of the Wings for Life World Run charity race, which the Helping Paws Volunteer Club will be joining and encouraging others to participate.",
