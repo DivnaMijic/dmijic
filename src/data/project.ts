@@ -19,16 +19,16 @@ export const projects = [
     tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
   },
   {
-    src: "media/images/ecu-film-festival-poster.png",
-    title: "ECU Film Festival Poster",
-    description:
-      "Poster for the first screening of all aisan independent film festivals",
+    src: "media/images/aha-akademija-ljetna-skola.png",
+    title: "Amrita Academy Poster",
+    description: "A call for applications post for Amrita Academy.",
     tech: ["Adobe Photoshop", "Adobe Illustrator"],
   },
   {
     src: "media/images/ecu-film-festival-poster.png",
-    title: "ECU Film Festival Poster (Alt)",
-    description: "Alternate version of the film festival poster.",
+    title: "ECU Film Festival Poster",
+    description:
+      "Poster for the first screening of all aisan independent film festivals",
     tech: ["Adobe Photoshop", "Adobe Illustrator"],
   },
   {

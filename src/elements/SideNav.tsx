@@ -136,7 +136,7 @@ const SideNav: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 h-screen flex flex-col items-start justify-center text-left z-50 w-[14vw] px-2 transition-transform duration-700 ${
+      className={`fixed top-0 left-0 h-screen flex flex-col items-start justify-center font-sunday text-left z-50 w-[14vw] px-2 transition-transform duration-700 ${
         showNav ? "translate-x-0" : "-translate-x-full"
       }`}
     >

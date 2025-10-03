@@ -2,7 +2,7 @@ import React from "react";
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="flex h-screen w-screen">
+    <section id="about" className="flex h-screen w-screen bg-white">
       <div id="sideNavSpace" className="h-screen w-[9vw] "></div>
 
       <div
@@ -14,7 +14,7 @@ const About: React.FC = () => {
             id="about-content-text"
             className="flex flex-col w-[45vw] justify-center items-start"
           >
-            <h2 className="text-5xl font-playfair   font-bold mb-4">ABOUT</h2>
+            <h2 className="text-5xl font-musty font-bold mb-4">ABOUT</h2>
             <p
               id="about-text"
               className="text-left text-gray-700 mb-8 w-[40vw]"

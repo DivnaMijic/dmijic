@@ -97,13 +97,13 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 bg-black/20 -z-10"></div>
 
       <div className="flex flex-col items-center justify-center z-10 text-center px-4">
-        <h1 className="text-[10rem] font-playfair font-bold mb-4 text-white drop-shadow-lg">
-          DIVNA MIJIĆ
+        <h1 className="text-[13rem] pb-0 font-sunday text-white drop-shadow-lg">
+          THIS IS DIVNA
         </h1>
+
         <h2 className="text-xl font-dmserif italic mb-8 text-gray-200 drop-shadow-md z-10">
           photographer, programmer & dreamer
         </h2>
-
         <a href="#about">
           <button
             className="relative border rounded-none border-white bg-transparent text-white px-6 py-3 font-semibold 

@@ -1,3 +1,40 @@
+/* 1. Register the font BEFORE Tailwind directives */
+@font-face {
+  font-family: "musty";
+  src: url("../src/assets/fonts/musty-font-demo.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "edigo";
+  src: url("../src/assets/fonts/edigo-demo.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sunday";
+  src: url("../src/assets/fonts/sunday-delight.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "suranna";
+  src: url("../src/assets/fonts/suranna-regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "josefin";
+  src: url("../src/assets/fonts/josefin.ttf") format("truetype");
+  font-weight: 100 900; /* range of weights */
+  font-style: normal;
+}
+
+/* 2. Then Tailwind directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

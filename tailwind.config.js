@@ -9,6 +9,11 @@ module.exports = {
       fontFamily: {
         playfair: ['"Playfair Display"', 'serif'],
         dmserif: ['"DM Serif Display"', 'serif'],
+        musty: ['musty', 'sans-serif'],
+        edigo: ['edigo', 'sans-serif'],
+        sunday: ['sunday', 'sans-serif'],
+        suranna: ['suranna', 'sans-serif'],
+        josefin: ['josefin', 'sans-serif'],
       },
     },
   },
