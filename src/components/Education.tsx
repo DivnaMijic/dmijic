@@ -37,7 +37,7 @@ const Education: React.FC = () => {
               </p>
             </div>
 
-            <div className="text-left text-xl font-suranna">2023</div>
+            <div className="text-left text-xl font-suranna">2021 - 2024</div>
             <div className="text-left">
               <h3 className="text-xl font-dmserif font-semibold">
                 RIT Croatia
@@ -53,7 +53,7 @@ const Education: React.FC = () => {
             </div>
 
             {/* Row 2 */}
-            <div className="text-left text-xl font-suranna">???</div>
+            <div className="text-left text-xl font-suranna">2018 - 2021</div>
             <div className="text-left">
               <h3 className="text-xl font-dmserif font-semibold">
                 Private Art College-Preparatory High School with Public Rights
@@ -67,7 +67,7 @@ const Education: React.FC = () => {
               </p>
             </div>
 
-            <div className="text-left text-xl font-suranna">2019 - 2020</div>
+            <div className="text-left text-xl font-suranna">2017 - 2018</div>
             <div className="text-left">
               <h3 className="text-xl font-dmserif font-bold">
                 IX. College-Preparatory High School

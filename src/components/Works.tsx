@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Modal from "../elements/Modal";
 import { projects } from "../data/project";
 import CarouselSection from "../elements/CarouselSection";
 import { carouselSections } from "../data/carouselSections";
@@ -16,13 +15,6 @@ const Works: React.FC = () => {
       return copy;
     });
   };
-
-  const [modalContent, setModalContent] = useState<{
-    title: string;
-    description: string;
-    tech?: string[];
-    src?: string;
-  } | null>(null);
 
   return (
     <section id="works" className="flex h-auto py-10 pb-30 w-screen">
@@ -78,21 +70,16 @@ const Works: React.FC = () => {
             {projects.map((project, i) => (
               <div
                 key={i}
-                className="relative w-full mb-4 cursor-pointer overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-[1.03] hover:brightness-75 shadow-md"
-                onClick={() =>
-                  setModalContent({
-                    title: project.title,
-                    description: project.description,
-                    tech: project.tech,
-                    src: project.src,
-                  })
-                }
+                className="relative w-full mb-4 overflow-hidden transition-transform duration-300 ease-in-out transform"
               >
                 <img
                   src={project.src}
                   alt={project.title}
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover shadow-md mb-4 mt-6"
                 />
+                <h2 className="text-center text-2xl font-josefin font-light mt-4">
+                  {project.title}
+                </h2>
               </div>
             ))}
           </div>
@@ -155,32 +142,6 @@ const Works: React.FC = () => {
               buttonLink={section.buttonLink}
             />
           ))}
-          {/* ///// */}
-
-          {modalContent && (
-            <Modal
-              isOpen={!!modalContent}
-              onClose={() => setModalContent(null)}
-              image={modalContent.src}
-              title={modalContent.title}
-            >
-              {/* children rendered inside Modal's right column */}
-              <div className="flex flex-col gap-4">
-                <p className="text-sm">{modalContent.description}</p>
-
-                {modalContent.tech && (
-                  <ul className="list-disc list-inside space-y-1">
-                    {modalContent.tech.map((t, idx) => (
-                      <li key={idx}>{t}</li>
-                    ))}
-                  </ul>
-                )}
-
-                {/* optional button */}
-                {/* <a href="#" className="inline-block mt-4 px-4 py-2 border">See on GitHub</a> */}
-              </div>
-            </Modal>
-          )}
         </div>
       </div>
     </section>

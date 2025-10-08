@@ -1,7 +1,7 @@
 export const projects = [
   {
     src: "media/images/hp-uproar-hoodie.png",
-    title: "HP Uproar Hoodie",
+    title: "Helping Paws Limited Addition Uproar Hoodie",
     description:
       "Limited edition Helping Paws Volunteer Club merchandise hoodie.",
     tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
@@ -12,6 +12,7 @@ export const projects = [
     description: "Event poster for a charity race on Zagreb's Nasip.",
     tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
   },
+
   {
     src: "media/images/wfl-poster.png",
     title: "WFL Charity Poster",
@@ -19,10 +20,10 @@ export const projects = [
     tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
   },
   {
-    src: "media/images/aha-akademija-ljetna-skola.png",
-    title: "Amrita Academy Poster",
-    description: "A call for applications post for Amrita Academy.",
-    tech: ["Adobe Photoshop", "Adobe Illustrator"],
+    src: "media/images/book-cover.png",
+    title: "Silent Voice Book Cover",
+    description: "Flyer created to promote a local bake sale.",
+    tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
   },
   {
     src: "media/images/ecu-film-festival-poster.png",
@@ -32,13 +33,13 @@ export const projects = [
     tech: ["Adobe Photoshop", "Adobe Illustrator"],
   },
   {
-    src: "media/images/burn-app.png",
+    src: "media/images/burn-app-1.jpg",
     title: "Burn App Wireframe Designing the user experience",
     description: "Figma wireframe for a ",
     tech: ["Figma", "Adobe Illustrator"],
   },
   {
-    src: "media/images/guest-speaker-burnout-poster.png",
+    src: "media/images/guest-speaker-poster.png",
     title: "Guest Speaker Poster",
     description: "Promotional poster for a guest lecture on burnout.",
     tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
@@ -57,10 +58,11 @@ export const projects = [
   },
   {
     src: "media/images/hp-volunteer-gaming-tournament.png",
-    title: "HP Volunteer Gaming Tournament",
+    title: "Helping Paws Gaming Tournament Volunteer T-Shirt",
     description: "Event graphics for a volunteer gaming tournament.",
     tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
   },
+
   {
     src: "media/images/hp-sticker.png",
     title: "HP Sticker Design",
@@ -69,7 +71,7 @@ export const projects = [
   },
   {
     src: "media/images/hp-hoodie-white.png",
-    title: "HP White Hoodie",
+    title: "Helping Paws Volunteer Club White Hoodie",
     description: "E-commerce hoodie variant with white color.",
     tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
   },
@@ -91,5 +93,4 @@ export const projects = [
     description: "Flyer created to promote a local bake sale.",
     tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
   },
-  // Add placeholders for the rest similarly
 ];

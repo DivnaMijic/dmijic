@@ -1,84 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Hero: React.FC = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section
       id="hero"
       className="relative flex flex-col items-center justify-center h-screen w-screen overflow-hidden"
     >
+      {/* Navigation */}
       <ul className="flex gap-32 justify-center py-8 text-white font-playfair z-10 absolute top-0 left-0 w-full">
-        <li>
-          <a
-            href="#about"
-            className="
-    relative font-semibold text-white text-lg
-    after:content-[''] after:absolute after:left-0 after:bottom-0 
-    after:w-0 after:h-[2px] after:bg-[#FFFF] 
-    after:transition-all after:duration-300 
-    hover:after:w-full hover:text-white
-  "
-          >
-            ABOUT
-          </a>
-        </li>
-        <li>
-          <a
-            href="#experience"
-            className="
-    relative font-semibold text-white text-lg
-    after:content-[''] after:absolute after:left-0 after:bottom-0 
-    after:w-0 after:h-[2px] after:bg-[#FFFF] 
-    after:transition-all after:duration-300 
-    hover:after:w-full hover:text-white
-  "
-          >
-            EXPERIENCE
-          </a>
-        </li>
-        <li>
-          <a
-            href="#works"
-            className="
-    relative font-semibold text-white text-lg
-    after:content-[''] after:absolute after:left-0 after:bottom-0 
-    after:w-0 after:h-[2px] after:bg-[#FFFF] 
-    after:transition-all after:duration-300 
-    hover:after:w-full hover:text-white
-  "
-          >
-            WORKS
-          </a>
-        </li>
-        <li>
-          <a
-            href="#truly"
-            className="
-    relative font-semibold text-white text-lg
-    after:content-[''] after:absolute after:left-0 after:bottom-0 
-    after:w-0 after:h-[2px] after:bg-[#FFFF] 
-    after:transition-all after:duration-300 
-    hover:after:w-full hover:text-white
-  "
-          >
-            BIOGRAPHY
-          </a>
-        </li>
-        <li>
-          <a
-            href="#contact"
-            className="
-    relative font-semibold text-white text-lg
-    after:content-[''] after:absolute after:left-0 after:bottom-0 
-    after:w-0 after:h-[2px] after:bg-[#FFFF] 
-    after:transition-all after:duration-300 
-    hover:after:w-full hover:text-white
-  "
-          >
-            CONTACT
-          </a>
-        </li>
+        {["ABOUT", "EXPERIENCE", "WORKS", "BIOGRAPHY", "CONTACT"].map(
+          (item) => (
+            <li key={item}>
+              <a
+                href={`#${item.toLowerCase()}`}
+                className="
+                relative font-semibold text-white text-lg
+                after:content-[''] after:absolute after:left-0 after:bottom-0 
+                after:w-0 after:h-[2px] after:bg-[#FFFF] 
+                after:transition-all after:duration-300 
+                hover:after:w-full hover:text-white
+              "
+              >
+                {item}
+              </a>
+            </li>
+          )
+        )}
       </ul>
 
+      {/* Background video with parallax */}
       <video
         className="absolute inset-0 w-full h-full -z-10"
         autoPlay
@@ -86,16 +45,17 @@ const Hero: React.FC = () => {
         muted
         playsInline
         style={{
-          transform: `translateY(${scrollY * 0.3}px) scale(1.2)`,
-          objectFit: "cover", // preserve aspect ratio, fill section
-          objectPosition: "center", // center it so you don't just see bottom half
+          transform: `translateY(${scrollY * 0.3}px) scale(1.2)`, // parallax effect
+          objectFit: "cover",
+          objectPosition: "center",
         }}
       >
-        <source src="public/media/videos/hero-bg.mp4" type="video/mp4" />
-        <source src="public/media/videos/hero-bg.webm" type="video/webm" />
+        <source src="media/videos/hero-bg.mp4" type="video/mp4" />
+        <source src="media/videos/hero-bg.webm" type="video/webm" />
       </video>
       <div className="absolute inset-0 bg-black/20 -z-10"></div>
 
+      {/* Content */}
       <div className="flex flex-col items-center justify-center z-10 text-center px-4">
         <h1 className="text-[13rem] pb-0 font-sunday text-white drop-shadow-lg">
           THIS IS DIVNA
@@ -104,6 +64,7 @@ const Hero: React.FC = () => {
         <h2 className="text-xl font-dmserif italic mb-8 text-gray-200 drop-shadow-md z-10">
           photographer, programmer & dreamer
         </h2>
+
         <a href="#about">
           <button
             className="relative border rounded-none border-white bg-transparent text-white px-6 py-3 font-semibold 

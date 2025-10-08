@@ -7,13 +7,13 @@ const Leadership: React.FC = () => {
 
       <video
         className="absolute top-0 left-0 w-full h-full object-cover "
-        src="public/media/videos/website-bg.mp4"
+        src="public/media/videos/website-bg-2.mp4"
         autoPlay
         loop
         muted
         playsInline
       />
-
+      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-20 z-0" />
       <div
         id="leadership-section-container"
         className="w-[88vw] z-10 flex flex-col justify-center items-center"
@@ -50,9 +50,9 @@ const Leadership: React.FC = () => {
               </h3>
               <h4 className="font-josefin  text-md ">Zagreb, Croatia</h4>
               <p className="font-josefin font-light text-lg mt-2 leading-relaxed">
-                Work in an international environment, responsible for delegating
-                tasks to designers and creation of promotional materials such as
-                posters, tote bags, social media posts, and banners.
+                Founder & President, Helping Paws Volunteer Club organized
+                weekly volunteering, fundraisers, and charity events to support
+                local shelters and community causes.
               </p>
             </div>
 
@@ -77,6 +77,9 @@ const Leadership: React.FC = () => {
                 <li className="font-josefin font-light text-lg leading-relaxed">
                   Vice-President of the Art Club, Business Exploration Club
                   participant
+                </li>
+                <li className="font-josefin font-light text-lg leading-relaxed">
+                  Summer School of Natural Building 2025
                 </li>
               </ul>
             </div>
