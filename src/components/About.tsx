@@ -37,7 +37,7 @@ const About: React.FC = () => {
             </a>
           </div>
           <img
-            src="/media/images/about-me.png"
+            src="public/media/images/about-me.png"
             alt="me"
             className="h-[60vh]"
           />
