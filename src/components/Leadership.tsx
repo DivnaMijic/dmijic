@@ -7,7 +7,7 @@ const Leadership: React.FC = () => {
 
       <video
         className="absolute top-0 left-0 w-full h-full object-cover "
-        src="public/media/videos/website-bg-2.mp4"
+        src="media/videos/website-bg-2.mp4"
         autoPlay
         loop
         muted
@@ -68,7 +68,7 @@ const Leadership: React.FC = () => {
               <ul className="list-disc list-inside text-sm mt-2 leading-relaxed">
                 <li className="font-josefin font-light text-lg leading-relaxed">
                   Head of the Department of Social Activities in the Council of
-                  Students of Polytechnics & Colleges of the Republic of Croatia
+                  Students of Polytechnics & Colleges of the Re of Croatia
                 </li>
                 <li className="font-josefin font-light text-lg leading-relaxed">
                   Head of the Department of Events & Finances and Communications

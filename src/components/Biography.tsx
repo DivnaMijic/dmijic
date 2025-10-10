@@ -7,7 +7,7 @@ const Biography: React.FC = () => {
 
       <div
         id="biography-section-container"
-        className="h-screen w-[88vw] flex flex-col justify-center items-center bg-[url('/media/images/biography_photo.jpg')] bg-cover"
+        className="h-screen w-[88vw] flex flex-col justify-center items-center bg-[url('media/images/biography_photo.jpg')] bg-cover"
       >
         <h1 className="text-5xl font-playfair font-bold mb-4 text-white">
           BIOGRAPHY

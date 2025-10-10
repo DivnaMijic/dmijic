@@ -56,7 +56,7 @@ const Education: React.FC = () => {
             <div className="text-left text-xl font-suranna">2018 - 2021</div>
             <div className="text-left">
               <h3 className="text-xl font-dmserif font-semibold">
-                Private Art College-Preparatory High School with Public Rights
+                Private Art College-Preparatory High School with Rights
               </h3>
               <h4 className="font-josefin font-light text-md ">
                 Zagreb, Croatia

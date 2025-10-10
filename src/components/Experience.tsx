@@ -7,7 +7,7 @@ const Experience: React.FC = () => {
 
       <video
         className="absolute top-0 left-0 w-full h-full object-cover "
-        src="public/media/videos/website-bg.mp4"
+        src="media/videos/website-bg.mp4"
         autoPlay
         loop
         muted

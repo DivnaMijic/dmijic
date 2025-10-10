@@ -4,7 +4,7 @@ const Truly: React.FC = () => {
   return (
     <section
       id="truly"
-      className="flex h-screen w-screen bg-[url('/media/images/truly-bg.jpg')] bg-cover "
+      className="flex h-screen w-screen bg-[url('media/images/truly-bg.jpg')] bg-cover "
     >
       <div id="sideNavSpace" className="h-screen w-[12vw] "></div>
 

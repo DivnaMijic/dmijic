@@ -24,7 +24,7 @@ const Header: React.FC = () => {
           <li>
             <a href="#home">
               <img
-                src="/media/icons/logo.svg"
+                src="media/icons/logo.svg"
                 alt="Logo"
                 className="h-10 hover:-translate-x-1 hover:-translate-y-1 duration-300 hover:scale-105 justify-left"
               />

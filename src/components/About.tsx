@@ -36,11 +36,7 @@ const About: React.FC = () => {
               </button>
             </a>
           </div>
-          <img
-            src="public/media/images/about-me.png"
-            alt="me"
-            className="h-[60vh]"
-          />
+          <img src="media/images/about-me.png" alt="me" className="h-[60vh]" />
         </div>
       </div>
     </section>

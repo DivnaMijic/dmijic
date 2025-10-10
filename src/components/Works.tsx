@@ -93,7 +93,7 @@ const Works: React.FC = () => {
               playsInline
               autoPlay
             >
-              <source src="public/media/videos/aha.mp4" type="video/mp4" />
+              <source src="media/videos/aha.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
 
@@ -104,7 +104,7 @@ const Works: React.FC = () => {
               playsInline
               autoPlay
             >
-              <source src="public/media/videos/aiff-ecu.mp4" type="video/mp4" />
+              <source src="media/videos/aiff-ecu.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
 
@@ -115,10 +115,7 @@ const Works: React.FC = () => {
               playsInline
               autoPlay
             >
-              <source
-                src="public/media/videos/sit-sip-connect.mp4"
-                type="video/mp4"
-              />
+              <source src="media/videos/sit-sip-connect.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
