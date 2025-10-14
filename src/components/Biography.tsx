@@ -2,12 +2,15 @@ import React from "react";
 
 const Biography: React.FC = () => {
   return (
-    <section id="biography" className="flex h-screen w-screen">
+    <section
+      id="biography"
+      className="flex h-screen w-screen  bg-[url('media/images/biography_photo.jpg')] bg-cover"
+    >
       <div id="sideNavSpace" className="h-screen w-[12vw] "></div>
 
       <div
         id="biography-section-container"
-        className="h-screen w-[88vw] flex flex-col justify-center items-center bg-[url('media/images/biography_photo.jpg')] bg-cover"
+        className="h-screen w-[88vw] flex flex-col justify-center items-center"
       >
         <h1 className="text-5xl font-playfair font-bold mb-4 text-white">
           BIOGRAPHY
