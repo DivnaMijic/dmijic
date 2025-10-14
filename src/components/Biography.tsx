@@ -1,10 +1,12 @@
 import React from "react";
+import bioBg from "/media/images/biography_photo.jpg";
 
 const Biography: React.FC = () => {
   return (
     <section
       id="biography"
-      className="flex h-screen w-screen  bg-[url('media/images/biography_photo.jpg')] bg-cover"
+      className="flex h-screen w-screen bg-cover"
+      style={{ backgroundImage: `url(${bioBg})` }}
     >
       <div id="sideNavSpace" className="h-screen w-[12vw] "></div>
 
