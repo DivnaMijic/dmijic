@@ -1,10 +1,12 @@
 import React from "react";
+import trulyBg from "/media/images/truly-bg.jpg";
 
 const Truly: React.FC = () => {
   return (
     <section
       id="truly"
-      className="flex h-screen w-screen bg-[url('media/images/truly-bg.jpg')] bg-cover "
+      className="flex h-screen w-screen bg-cover bg-center"
+      style={{ backgroundImage: `url(${trulyBg})` }}
     >
       <div id="sideNavSpace" className="h-screen w-[12vw] "></div>
 
