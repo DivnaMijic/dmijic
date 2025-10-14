@@ -2,7 +2,10 @@ import React from "react";
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="flex h-screen w-screen bg-white">
+    <section
+      id="about"
+      className="cursor-browsingPink flex h-screen w-screen bg-white"
+    >
       <div id="sideNavSpace" className="h-screen w-[9vw] "></div>
 
       <div
@@ -25,7 +28,7 @@ const About: React.FC = () => {
               everything I believe in.
             </p>
             <a href="#experience">
-              <button className="relative border bg-transparent rounded-none border-black text-black px-6 py-3 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#EAA3F4] hover:bg-black hover:text-white hover:border-black transition-all duration-300 group">
+              <button className="cursor-clicking hover:cursor-clicking relative border bg-transparent rounded-none border-black text-black px-6 py-3 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#EAA3F4] hover:bg-black hover:text-white hover:border-black transition-all duration-300 group">
                 <span className="relative z-10">my experience & impact</span>
                 <span className="absolute inset-0 overflow-hidden">
                   <span

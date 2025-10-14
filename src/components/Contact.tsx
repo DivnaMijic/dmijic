@@ -22,7 +22,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="flex w-screen">
+    <section id="contact" className="cursor-browsingYellow flex w-screen">
       <div id="sideNavSpace" className="h-screen w-[12vw] "></div>
 
       <div
@@ -82,7 +82,7 @@ const Contact: React.FC = () => {
 
           <button
             type="submit"
-            className="w-[10vw] self-center relative border bg-transparent rounded-none border-black text-black px-6 py-3 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#B9ADED] hover:bg-black hover:text-white hover:border-black transition-all duration-300 group"
+            className="cursor-clicking hover:cursor-clicking w-[10vw] self-center relative border bg-transparent rounded-none border-black text-black px-6 py-3 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#ECD586] hover:bg-black hover:text-white hover:border-black transition-all duration-300 group"
           >
             <span className="relative z-10">send</span>
             <span className="absolute inset-0 overflow-hidden">

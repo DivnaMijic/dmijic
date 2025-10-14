@@ -5,7 +5,7 @@ const Biography: React.FC = () => {
   return (
     <section
       id="biography"
-      className="flex h-screen w-screen bg-cover"
+      className="cursor-browsingWhite flex h-screen w-screen bg-cover"
       style={{ backgroundImage: `url(${bioBg})` }}
     >
       <div id="sideNavSpace" className="h-screen w-[12vw] "></div>
@@ -52,7 +52,7 @@ const Biography: React.FC = () => {
             className="relative border rounded-none border-white bg-transparent text-white px-6 py-3 font-semibold 
              hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#000] 
              hover:bg-white hover:text-black hover:border-white 
-             transition-all duration-300 group"
+             transition-all duration-300 group cursor-clicking hover:cursor-clicking"
           >
             <span className="relative z-10">
               Felt a connection? Contact me!

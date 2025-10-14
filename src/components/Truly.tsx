@@ -5,7 +5,7 @@ const Truly: React.FC = () => {
   return (
     <section
       id="truly"
-      className="flex h-screen w-screen bg-cover bg-center"
+      className="cursor-browsingWhite flex h-screen w-screen bg-cover bg-center"
       style={{ backgroundImage: `url(${trulyBg})` }}
     >
       <div id="sideNavSpace" className="h-screen w-[12vw] "></div>
@@ -34,7 +34,7 @@ const Truly: React.FC = () => {
             </p>
             <a href="#biography">
               <button
-                className="relative border rounded-none border-white bg-transparent text-white px-6 py-3 font-semibold 
+                className="cursor-clicking hover:cursor-clicking relative border rounded-none border-white bg-transparent text-white px-6 py-3 font-semibold 
              hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#000] 
              hover:bg-white hover:text-black hover:border-white 
              transition-all duration-300 group"

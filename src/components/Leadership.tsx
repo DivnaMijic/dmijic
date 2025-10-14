@@ -2,7 +2,10 @@ import React from "react";
 
 const Leadership: React.FC = () => {
   return (
-    <section id="leadership" className="relative w-screen h-screen flex ">
+    <section
+      id="leadership"
+      className="cursor-browsingWhite relative w-screen h-screen flex "
+    >
       <div id="sideNavSpace" className="h-screen w-[12vw] "></div>
 
       <video

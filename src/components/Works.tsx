@@ -17,7 +17,10 @@ const Works: React.FC = () => {
   };
 
   return (
-    <section id="works" className="flex h-auto py-10 pb-30 w-screen">
+    <section
+      id="works"
+      className="cursor-browsingPurple flex h-auto py-10 pb-30 w-screen"
+    >
       <div id="sideNavSpace" className="h-screen w-[12vw] "></div>
       <div
         id="works-section-container"
@@ -51,7 +54,7 @@ const Works: React.FC = () => {
               learn more about each work.
             </p>
             <a href="#portfolio">
-              <button className="relative border bg-transparent rounded-none border-black text-black px-6 py-3 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#EAA3F4] hover:bg-black hover:text-white hover:border-black transition-all duration-300 group">
+              <button className="cursor-clicking hover:cursor-clicking relative border bg-transparent rounded-none border-black text-black px-6 py-3 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#B9ADED] hover:bg-black hover:text-white hover:border-black transition-all duration-300 group">
                 <span className="relative z-10">take a peek!</span>
                 <span className="absolute inset-0 overflow-hidden">
                   <span

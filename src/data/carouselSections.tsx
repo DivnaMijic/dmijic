@@ -5,8 +5,8 @@ export const carouselSections = [
     id: "ameliaHeirrWebsite",
     title: "Client Programming Website Project",
     buttonText: "See on GitHub!",
-    buttonLink: "#",
-    tech: ["Tailwind", "CSS", "HTML", "JavaScript"],
+    buttonLink: "",
+    tech: ["Tailwind", "CSS, HTML", "JavaScript"],
     description:
       "Website for ordering cake using dynamic data, JavaScript, etc.",
     images: carouselImages.ameliaHeirrWebsite,
@@ -31,7 +31,12 @@ export const carouselSections = [
     id: "planetAyurveda",
     title: "Planet Ayurveda Webshop",
     buttonText: "Not yet !",
-    tech: ["Odoo", "Adobe Illustrator", "Adobe Photoshop", "CSS", "HTML"],
+    tech: [
+      "Odoo",
+      "Adobe Illustrator, Photoshop",
+      "Adobe Photoshop",
+      "HTML, CSS",
+    ],
     description:
       "Web shop with over two thousand products including full-stack development, database management, and graphic & web design.",
     images: carouselImages.planetAyurveda,

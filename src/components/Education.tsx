@@ -4,7 +4,7 @@ const Education: React.FC = () => {
   return (
     <section
       id="education"
-      className="relative w-screen h-screen flex text-black"
+      className="cursor-browsingBlue relative w-screen h-screen flex text-black"
     >
       <div id="sideNavSpace" className="h-screen w-[12vw]"></div>
       <div

@@ -19,7 +19,7 @@ const Carousel: React.FC<CarouselProps> = ({
     setCurrent(current === images.length - 1 ? 0 : current + 1);
 
   return (
-    <div className="relative w-[75vw] h-auto justify-center flex mt-16 mb-4 bg-green-100">
+    <div className="relative w-[75vw] h-auto justify-center flex mt-16 bg-green-100">
       {/* Slides */}
       <div className="overflow-hidden w-full" style={{ height }}>
         <div
@@ -40,7 +40,7 @@ const Carousel: React.FC<CarouselProps> = ({
       {/* Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 -left-16 transform -translate-y-1/2 p-2 bg-transparent z-50"
+        className="cursor-clicking hover:cursor-clicking absolute top-1/2 -left-16 transform -translate-y-1/2 p-2 bg-transparent z-50"
       >
         <img
           src="media/icons/arrow-left.png"
@@ -50,7 +50,7 @@ const Carousel: React.FC<CarouselProps> = ({
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 -right-16 transform -translate-y-1/2 p-2 bg-transparent z-50"
+        className="cursor-clicking hover:cursor-clicking absolute top-1/2 -right-16 transform -translate-y-1/2 p-2 bg-transparent z-50"
       >
         <img src="media/icons/arrow-right.png" alt="Next" className="w-8 h-8" />
       </button>

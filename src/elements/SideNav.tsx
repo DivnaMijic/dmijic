@@ -66,7 +66,7 @@ const sectionColors: Record<
   works: { line: "#B9ADED", text: "#B9ADED", rest: "#000000" },
   truly: { line: "#000000", text: "#000000", rest: "#000000" },
   biography: { line: "#FFFFFF", text: "#FFFFFF", rest: "#000000" }, // full-bio used to be white text
-  contact: { line: "#000000", text: "#000000", rest: "#000000" },
+  contact: { line: "#ECD586", text: "#ECD586", rest: "#000000" },
 };
 
 const SideNav: React.FC = () => {
@@ -140,7 +140,7 @@ const SideNav: React.FC = () => {
         showNav ? "translate-x-0" : "-translate-x-full"
       }`}
     >
-      <div className="relative left-2 flex flex-col items-start gap-4">
+      <div className="cursor-clicking hover:cursor-clicking relative left-2 flex flex-col items-start gap-4">
         {/* Vertical / progress line */}
         <div
           className="absolute transform -translate-x-1/2 h-full w-px transition-colors duration-300"
@@ -157,10 +157,6 @@ const SideNav: React.FC = () => {
 
         {navSections.map((section) => {
           const isActiveParent = activeParent === section.id;
-          // determine parent link color:
-          // - if in prof/lead: parent "experience" is blue, everything else white
-          // - if in education: parent "experience" is blue, everything else black
-          // - otherwise use sectionColors
           let parentLinkColor = sectionColors[section.id]?.rest ?? "#000000";
           if (inProfOrLead) {
             parentLinkColor =
@@ -174,31 +170,29 @@ const SideNav: React.FC = () => {
               : sectionColors[section.id]?.rest ?? "#000";
           }
 
-          // class for parent (bold/2xl for active)
+          // Parent link
           const parentClass = isActiveParent
-            ? "scale-110 text-2xl font-bold px-6"
-            : "text-base";
+            ? "scale-110 text-2xl font-bold px-6 transition-transform duration-300 ease-in-out"
+            : "text-base transition-transform duration-300 ease-in-out";
 
           return (
-            <div key={section.id} className="flex flex-col">
+            <div
+              key={section.id}
+              className="transition-transform duration-300 ease-in-out hover:scale-105 flex flex-col"
+            >
               {/* Parent link: clicking experience should also mark professional as active */}
               <a
                 href={`#${section.id}`}
                 onClick={() => {
-                  // if clicking parent experience, we want both parent + professional highlighted
                   if (section.id === "experience") {
-                    // allow default navigation to #experience, but also mark professional
-                    // set state quickly so UI updates instantly
                     setActiveParent("experience");
                     setActiveSub("professional");
-                    // do not prevent default so browser still scrolls to #experience
                   } else {
-                    // clear any sub selection when clicking other parents
                     setActiveParent(section.id);
                     setActiveSub(null);
                   }
                 }}
-                className={`relative z-10 transition-all duration-300 py-3 px-4 ${parentClass}`}
+                className={`relative z-10 py-3 px-4 ${parentClass} cursor-clicking`}
                 style={{ color: parentLinkColor }}
               >
                 {section.label}
@@ -231,9 +225,10 @@ const SideNav: React.FC = () => {
                     }
 
                     // make professional/leadership bold when active (and in the prof/lead special state)
+                    // Sub-link
                     const childClass = isActiveSub
-                      ? "font-bold scale-105"
-                      : "opacity-70";
+                      ? "font-bold scale-105 transition-transform duration-300 ease-in-out"
+                      : "opacity-70 transition-transform duration-300 ease-in-out";
 
                     // Clicking a sublink:
                     // - if the child points to the same #experience section (professional), ensure it highlights
@@ -243,12 +238,12 @@ const SideNav: React.FC = () => {
                         key={child.id}
                         href={`#${
                           child.id === "professional" ? "experience" : child.id
-                        }`} // professional scrolls to #experience
+                        }`}
                         onClick={() => {
                           setActiveParent(section.id);
                           setActiveSub(child.id);
                         }}
-                        className={`transition-all duration-300 text-sm ${childClass}`}
+                        className={`text-sm ${childClass} cursor-clicking transition-transform duration-300 ease-in-out hover:scale-105 `}
                         style={{ color: childColor }}
                       >
                         {child.label}

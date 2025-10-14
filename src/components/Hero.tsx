@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative flex flex-col items-center justify-center h-screen w-screen overflow-hidden"
+      className="cursor-browsingWhite relative flex flex-col items-center justify-center h-screen w-screen overflow-hidden "
     >
       {/* Navigation */}
       <ul className="flex gap-32 justify-center py-8 text-white font-playfair z-10 absolute top-0 left-0 w-full">
@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
             <li key={item}>
               <a
                 href={`#${item.toLowerCase()}`}
-                className="
+                className="cursor-clicking hover:cursor-clicking
                 relative font-semibold text-white text-lg
                 after:content-[''] after:absolute after:left-0 after:bottom-0 
                 after:w-0 after:h-[2px] after:bg-[#FFFF] 
@@ -67,7 +67,7 @@ const Hero: React.FC = () => {
 
         <a href="#about">
           <button
-            className="relative border rounded-none border-white bg-transparent text-white px-6 py-3 font-semibold 
+            className="cursor-clicking hover:cursor-clicking relative border rounded-none border-white bg-transparent text-white px-6 py-3 font-semibold 
              hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#000] 
              hover:bg-white hover:text-black hover:border-white 
              transition-all duration-300 group"
