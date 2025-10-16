@@ -1,5 +1,5 @@
 import React from "react";
-import trulyBg from "/media/images/truly-bg.jpg";
+import trulyBg from "/media/images/truly-photo.png";
 
 const Truly: React.FC = () => {
   return (

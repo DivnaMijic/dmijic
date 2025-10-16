@@ -4,17 +4,16 @@ import React, { useState, useEffect } from "react";
  * SideNav behavior:
  * - professional & leadership: parent + active sub blue+bold, everything else WHITE, lines WHITE
  * - education: parent + education blue+bold, lines BLUE, everything else BLACK
- * - detailed-bio (biography) when active => sublink turns BLACK
+ * - detailed-bio (biography/truly): everything WHITE
  */
 
-// Sidebar structure (unique child IDs)
 const navSections = [
   { id: "about", label: "about" },
   {
     id: "experience",
     label: "experience",
     children: [
-      { id: "professional", label: "professional" }, // unique id
+      { id: "professional", label: "professional" },
       { id: "education", label: "education" },
       { id: "leadership", label: "leadership" },
     ],
@@ -28,10 +27,9 @@ const navSections = [
   { id: "contact", label: "contact" },
 ];
 
-// All scroll-sensitive sections (these must match ids in your page)
 const allSections = [
   "about",
-  "experience", // the main experience section (we treat this as 'professional' when active)
+  "experience",
   "education",
   "leadership",
   "works",
@@ -40,11 +38,10 @@ const allSections = [
   "contact",
 ];
 
-// Map real section -> nav parent
 const sectionToNav: Record<string, string> = {
   about: "about",
   experience: "experience",
-  professional: "experience", // optional — we treat experience as professional when needed
+  professional: "experience",
   education: "experience",
   leadership: "experience",
   works: "works",
@@ -53,19 +50,18 @@ const sectionToNav: Record<string, string> = {
   contact: "contact",
 };
 
-// Default colors per logical section (used as fallback)
 const sectionColors: Record<
   string,
   { line: string; text: string; rest: string }
 > = {
   about: { line: "#EAA3F4", text: "#EAA3F4", rest: "#000000" },
-  experience: { line: "#A0BEF4", text: "#A0BEF4", rest: "#000000" }, // blue
+  experience: { line: "#A0BEF4", text: "#A0BEF4", rest: "#000000" },
   education: { line: "#A0BEF4", text: "#A0BEF4", rest: "#000000" },
   professional: { line: "#A0BEF4", text: "#A0BEF4", rest: "#000000" },
   leadership: { line: "#FFFFFF", text: "#FFFFFF", rest: "#000000" },
   works: { line: "#B9ADED", text: "#B9ADED", rest: "#000000" },
   truly: { line: "#000000", text: "#000000", rest: "#000000" },
-  biography: { line: "#FFFFFF", text: "#FFFFFF", rest: "#000000" }, // full-bio used to be white text
+  biography: { line: "#FFFFFF", text: "#FFFFFF", rest: "#000000" },
   contact: { line: "#ECD586", text: "#ECD586", rest: "#000000" },
 };
 
@@ -78,28 +74,24 @@ const SideNav: React.FC = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 2;
 
-      // find first matching visible section
       for (const id of allSections) {
         const el = document.getElementById(id);
         if (!el) continue;
         const top = el.offsetTop;
         const bottom = top + el.offsetHeight;
         if (scrollPosition >= top && scrollPosition < bottom) {
-          // Map the section to the nav parent
           const parent = sectionToNav[id] ?? id;
-          // Special handling: treat scrolled-to #experience as the "professional" sub active
           if (id === "experience") {
             setActiveParent("experience");
-            setActiveSub("professional"); // highlight professional when inside experience
+            setActiveSub("professional");
           } else {
             setActiveParent(parent);
             setActiveSub(id !== parent ? id : null);
           }
-          break; // stop after first match
+          break;
         }
       }
 
-      // Show/hide nav based on reaching "about" trigger point
       const aboutEl = document.getElementById("about");
       if (aboutEl) {
         const trigger = aboutEl.offsetTop - window.innerHeight / 2;
@@ -108,7 +100,6 @@ const SideNav: React.FC = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    // initialize immediately in case user lands mid-page
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -116,19 +107,18 @@ const SideNav: React.FC = () => {
   const activeIndex = navSections.findIndex((s) => s.id === activeParent);
   const parentIndexSafe = activeIndex >= 0 ? activeIndex : 0;
 
-  // flags for behavior
   const inEducation = activeSub === "education";
   const inProfessional =
     activeSub === "professional" ||
     (activeParent === "experience" && activeSub === "professional");
   const inLeadership = activeSub === "leadership";
   const inProfOrLead = inProfessional || inLeadership;
+  const inTrulyOrBio = activeParent === "truly" || activeSub === "biography";
 
-  // line color rules:
-  // - professional/leadership => lines WHITE
-  // - education => lines BLUE
-  // - otherwise follow parent section color
-  const lineColor = inProfOrLead
+  // LINE COLOR RULES
+  const lineColor = inTrulyOrBio
+    ? "#FFFFFF"
+    : inProfOrLead
     ? "#FFFFFF"
     : inEducation
     ? "#A0BEF4"
@@ -141,7 +131,7 @@ const SideNav: React.FC = () => {
       }`}
     >
       <div className="cursor-clicking hover:cursor-clicking relative left-2 flex flex-col items-start gap-4">
-        {/* Vertical / progress line */}
+        {/* Vertical line */}
         <div
           className="absolute transform -translate-x-1/2 h-full w-px transition-colors duration-300"
           style={{ backgroundColor: lineColor }}
@@ -157,8 +147,12 @@ const SideNav: React.FC = () => {
 
         {navSections.map((section) => {
           const isActiveParent = activeParent === section.id;
-          let parentLinkColor = sectionColors[section.id]?.rest ?? "#000000";
-          if (inProfOrLead) {
+
+          let parentLinkColor = "#000000";
+
+          if (inTrulyOrBio) {
+            parentLinkColor = "#FFFFFF";
+          } else if (inProfOrLead) {
             parentLinkColor =
               section.id === "experience" ? "#FFFFFF" : "#FFFFFF";
           } else if (inEducation) {
@@ -170,7 +164,6 @@ const SideNav: React.FC = () => {
               : sectionColors[section.id]?.rest ?? "#000";
           }
 
-          // Parent link
           const parentClass = isActiveParent
             ? "scale-110 text-2xl font-bold px-6 transition-transform duration-300 ease-in-out"
             : "text-base transition-transform duration-300 ease-in-out";
@@ -180,7 +173,6 @@ const SideNav: React.FC = () => {
               key={section.id}
               className="transition-transform duration-300 ease-in-out hover:scale-105 flex flex-col"
             >
-              {/* Parent link: clicking experience should also mark professional as active */}
               <a
                 href={`#${section.id}`}
                 onClick={() => {
@@ -198,24 +190,18 @@ const SideNav: React.FC = () => {
                 {section.label}
               </a>
 
-              {/* Sub-links */}
               {section.children && (
                 <div className="ml-6 flex flex-col gap-2">
                   {section.children.map((child) => {
                     const isActiveSub = activeSub === child.id;
+                    let childColor = "#000000";
 
-                    // child color rules:
-                    // - biography (detailed bio) when active => black (special-case)
-                    // - if in professional/leadership: active child (professional/leadership) => blue, others => white
-                    // - if in education: active child => blue, others => black
-                    // - otherwise use default mapping
-                    let childColor =
-                      sectionColors[section.id]?.rest ?? "#000000";
-
-                    if (child.id === "biography" && isActiveSub) {
+                    if (inTrulyOrBio) {
+                      childColor = "#FFFFFF";
+                    } else if (child.id === "biography" && isActiveSub) {
                       childColor = "#000000";
                     } else if (inProfOrLead) {
-                      childColor = isActiveSub ? "#FFFFFF" : "#FFFFFF";
+                      childColor = "#FFFFFF";
                     } else if (inEducation) {
                       childColor = isActiveSub ? "#A0BEF4" : "#000000";
                     } else {
@@ -224,15 +210,10 @@ const SideNav: React.FC = () => {
                         : sectionColors[section.id]?.rest ?? "#000";
                     }
 
-                    // make professional/leadership bold when active (and in the prof/lead special state)
-                    // Sub-link
                     const childClass = isActiveSub
                       ? "font-bold scale-105 transition-transform duration-300 ease-in-out"
                       : "opacity-70 transition-transform duration-300 ease-in-out";
 
-                    // Clicking a sublink:
-                    // - if the child points to the same #experience section (professional), ensure it highlights
-                    // - otherwise, allow default navigation
                     return (
                       <a
                         key={child.id}
@@ -243,7 +224,7 @@ const SideNav: React.FC = () => {
                           setActiveParent(section.id);
                           setActiveSub(child.id);
                         }}
-                        className={`text-sm ${childClass} cursor-clicking transition-transform duration-300 ease-in-out hover:scale-105 `}
+                        className={`text-sm ${childClass} cursor-clicking transition-transform duration-300 ease-in-out hover:scale-105`}
                         style={{ color: childColor }}
                       >
                         {child.label}

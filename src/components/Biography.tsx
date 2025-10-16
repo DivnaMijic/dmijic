@@ -1,5 +1,5 @@
 import React from "react";
-import bioBg from "/media/images/biography_photo.jpg";
+import bioBg from "/media/images/biography-photo.png";
 
 const Biography: React.FC = () => {
   return (

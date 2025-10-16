@@ -5,12 +5,14 @@ export const projects = [
     description:
       "Limited edition Helping Paws Volunteer Club merchandise hoodie.",
     tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
+    type: "image",
   },
   {
     src: "media/images/tour-de-nasip-poster.png",
     title: "Tour de Nasip Poster",
     description: "Event poster for a charity race on Zagreb's Nasip.",
     tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
+    type: "image",
   },
 
   {
@@ -18,12 +20,14 @@ export const projects = [
     title: "WFL Charity Poster",
     description: "Promotional poster for Wings for Life charity run.",
     tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
+    type: "image",
   },
   {
     src: "media/images/book-cover.png",
     title: "Silent Voice Book Cover",
     description: "Flyer created to promote a local bake sale.",
     tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
+    type: "image",
   },
   {
     src: "media/images/ecu-film-festival-poster.png",
@@ -31,36 +35,49 @@ export const projects = [
     description:
       "Poster for the first screening of all aisan independent film festivals",
     tech: ["Adobe Photoshop", "Adobe Illustrator"],
+    type: "image",
   },
   {
     src: "media/images/burn-app-1.jpg",
     title: "Burn App Wireframe Designing the user experience",
     description: "Figma wireframe for a ",
     tech: ["Figma", "Adobe Illustrator"],
+    type: "image",
+  },
+  {
+    src: "media/videos/aiff-ecu.mp4",
+    title: "Bake Sale Flyer",
+    description: "Flyer created to promote a local bake sale.",
+    tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
+    type: "video",
   },
   {
     src: "media/images/guest-speaker-poster.png",
     title: "Guest Speaker Poster",
     description: "Promotional poster for a guest lecture on burnout.",
     tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
+    type: "image",
   },
   {
     src: "media/images/walk-me-poster.png",
     title: "Walk Me Poster",
     description: "Poster for Walk Me charity campaign.",
     tech: ["Adobe Photoshop", "Adobe Illustrator"],
+    type: "image",
   },
   {
     src: "media/images/boss-magazine.png",
     title: "Boss Magazine Feature",
     description: "Graphic design and layout for a magazine feature.",
     tech: ["Adobe Photoshop", "Adobe Illustrator"],
+    type: "image",
   },
   {
     src: "media/images/hp-volunteer-gaming-tournament.png",
     title: "Helping Paws Gaming Tournament Volunteer T-Shirt",
     description: "Event graphics for a volunteer gaming tournament.",
     tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
+    type: "image",
   },
 
   {
@@ -68,29 +85,48 @@ export const projects = [
     title: "HP Sticker Design",
     description: "Illustrative sticker design for HP campaign.",
     tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
+    type: "image",
   },
   {
     src: "media/images/hp-hoodie-white.png",
     title: "Helping Paws Volunteer Club White Hoodie",
     description: "E-commerce hoodie variant with white color.",
     tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
+    type: "image",
   },
   {
     src: "media/images/glow-in-the-dark-party.png",
     title: "Glow-in-the-Dark Party Poster",
     description: "Promotional poster design for a night event.",
     tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
+    type: "image",
   },
   {
     src: "media/images/volunteer-camp-web-sketch.png",
     title: "Volunteer Camp Web Sketch",
     description: "Initial web sketch design for volunteer camp project.",
     tech: ["Adobe Photoshop", "Adobe Illustrator"],
+    type: "image",
   },
   {
     src: "media/images/bake-sale.jpg",
     title: "Bake Sale Flyer",
     description: "Flyer created to promote a local bake sale.",
     tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
+    type: "image",
+  },
+  {
+    src: "media/videos/aha.mp4",
+    title: "Bake Sale Flyer",
+    description: "Flyer created to promote a local bake sale.",
+    tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
+    type: "video",
+  },
+  {
+    src: "media/videos/sit-sip-connect.mp4",
+    title: "Bake Sale Flyer",
+    description: "Flyer created to promote a local bake sale.",
+    tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
+    type: "video",
   },
 ];

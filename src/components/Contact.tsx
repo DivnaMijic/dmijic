@@ -32,9 +32,9 @@ const Contact: React.FC = () => {
         <h2 className="text-5xl font-playfair font-bold mb-8">CONTACT</h2>
 
         <img
-          src="media/images/contact_photo.jpg"
-          alt="contact_photo"
-          className="w-[55vw] object-contain mb-12"
+          src="media/images/contact-photo.png"
+          alt="contact-photo"
+          className="w-[35vw] object-contain mb-12"
         />
 
         <form

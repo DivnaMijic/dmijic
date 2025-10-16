@@ -7,7 +7,7 @@ const Works: React.FC = () => {
   const [currentIndexes, setCurrentIndexes] = useState(
     Array(carouselSections.length).fill(0)
   );
-
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
   const setCurrent = (index: number, value: number) => {
     setCurrentIndexes((prev: number[]) => {
       const copy = [...prev];
@@ -59,7 +59,7 @@ const Works: React.FC = () => {
                 <span className="absolute inset-0 overflow-hidden">
                   <span
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent 
-             -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out skew-x-12"
+             -translate-x-full  group-hover:cursor-clicking group-hover:translate-x-full transition-transform duration-700 ease-in-out skew-x-12"
                   ></span>
                 </span>
               </button>
@@ -73,56 +73,62 @@ const Works: React.FC = () => {
             {projects.map((project, i) => (
               <div
                 key={i}
-                className="relative w-full mb-4 overflow-hidden transition-transform duration-300 ease-in-out transform"
+                className="relative w-full mb-4 overflow-hidden cursor-clickings hover:scale-105 transition-transform duration-300 ease-in-out transform"
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
               >
-                <img
-                  src={project.src}
-                  alt={project.title}
-                  className="w-full h-auto object-cover shadow-md mb-4 mt-6"
-                />
-                <h2 className="text-center text-2xl font-josefin font-light mt-4">
-                  {project.title}
-                </h2>
+                {project.type === "image" ? (
+                  <img
+                    src={project.src}
+                    alt={project.title}
+                    className="w-full h-auto object-cover shadow-md"
+                  />
+                ) : (
+                  <video
+                    src={project.src}
+                    className="w-full h-auto object-cover shadow-md"
+                    loop
+                    muted
+                    playsInline
+                    autoPlay
+                  />
+                )}
+
+                {/* Overlay */}
+                <div
+                  className={`absolute inset-0 bg-black bg-opacity-80 flex flex-col justify-center items-center text-center p-4 text-white transition-opacity duration-300 ${
+                    openIndex === i
+                      ? "opacity-100"
+                      : "opacity-0 pointer-events-none"
+                  }`}
+                >
+                  <button
+                    className="absolute top-2 right-2 text-white bg-transparent text-xl font-bold"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setOpenIndex(null);
+                    }}
+                  >
+                    ✕
+                  </button>
+
+                  <h3 className="text-lg font-semibold mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm mb-3">{project.description}</p>
+                  <div className="flex flex-wrap justify-center gap-2">
+                    {project.tech.map((t, idx) => (
+                      <span
+                        key={idx}
+                        className="bg-white/20 rounded-full px-3 py-1 text-xs"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
-
-          {/* Other videos section */}
-          <div className="flex justify-center items-start gap-4 w-full">
-            <video
-              className="h-[70vh] w-auto shadow-lg"
-              loop
-              muted
-              playsInline
-              autoPlay
-            >
-              <source src="media/videos/aha.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-
-            <video
-              className="h-[70vh] w-auto shadow-lg"
-              loop
-              muted
-              playsInline
-              autoPlay
-            >
-              <source src="media/videos/aiff-ecu.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-
-            <video
-              className="h-[70vh] w-auto shadow-lg"
-              loop
-              muted
-              playsInline
-              autoPlay
-            >
-              <source src="media/videos/sit-sip-connect.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          {/* ///// */}
 
           {carouselSections.map((section, i) => (
             <CarouselSection
