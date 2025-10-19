@@ -1,20 +1,23 @@
 import React from "react";
-import awardsBg from "/media/images/holo-bg.jpg"; // adjust path if needed
 import leafIcon from "/media/icons/leaf.svg";
+import awardsVideo from "/media/videos/awards-video.mp4"; // adjust path if needed
 
 const Awards: React.FC = () => {
   return (
     <section
       id="awards"
       className="relative w-screen h-screen flex flex-col items-center justify-center overflow-hidden"
-      style={{
-        backgroundImage: `url(${awardsBg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed", // for parallax effect
-      }}
     >
+      {/* Background video */}
+      <video
+        autoPlay
+        muted
+        loop
+        className="absolute inset-0 w-full h-full object-cover -z-20"
+      >
+        <source src={awardsVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40 z-10"></div>
 
