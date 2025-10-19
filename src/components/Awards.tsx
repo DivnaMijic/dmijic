@@ -1,47 +1,42 @@
 import React from "react";
+import awardsBg from "/media/images/holo-bg.jpg"; // adjust path if needed
 import leafIcon from "/media/icons/leaf.svg";
-import awardsVideo from "/media/videos/awards-video.mp4"; // adjust path if needed
 
 const Awards: React.FC = () => {
   return (
     <section
       id="awards"
-      className="relative w-screen h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative w-screen h-[50vh] flex flex-col items-center justify-center overflow-hidden"
+      style={{
+        backgroundImage: `url(${awardsBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed", // for parallax effect
+      }}
     >
-      {/* Background video */}
-      <video
-        autoPlay
-        muted
-        loop
-        className="absolute inset-0 w-full h-full object-cover -z-20"
-      >
-        <source src={awardsVideo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40 z-10"></div>
 
-      <div
-        id="awards-content-container"
-        className="w-screen h-[30vh] bg-white/60 z-20 flex flex-col text-center justify-center px-8"
-      >
+      {/* Content */}
+      <div className="w-screen h-auto bg-white/80 z-20 flex flex-col text-center justify-center px-8 py-4">
         <h2 className="text-7xl font-sunday font-semibold mb-4 text-center text-black">
           AWARDS & ACCOLADES
         </h2>
-        <h3 className="text-2xl   mb-4 text-center text-black">
-          Honorary beneficiary of{" "}
+        <h3 className="text-2xl mb-4 text-center text-black">
+          Honorary beneficiary of
         </h3>
 
         {/* Awards container */}
-        <div className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-8 w-full">
+        <div className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-3 w-full">
           {[
             {
               title: "DEAN'S LIST",
               description: "Multi-time Outstanding Scholar Awardee",
             },
             {
-              title: "ERASMUS GRANT RECIPIENT",
-              description: "Women in STEM",
+              title: "ERASMUS GRANT",
+              description: "Recipient of Women in STEM Erasmus grant",
             },
             {
               title: "LIDRANO 2019",
@@ -55,27 +50,27 @@ const Awards: React.FC = () => {
           ].map((award, idx) => (
             <div
               key={idx}
-              className="relative flex flex-row items-center bg-white/0 p-4 w-full md:w-1/2 lg:w-[20vw]"
+              className="relative flex flex-row items-center bg-white/0 p-4 w-full md:w-1/2 lg:w-[23vw]"
             >
               {/* Left leaf */}
               <img
                 src={leafIcon}
                 alt="leaf"
-                className=" h-20 mr-2 transform -scale-x-100"
+                className="h-[14vh] mr-2 transform -scale-x-100"
               />
 
               {/* Text */}
               <div className="flex flex-col text-center">
-                <h3 className="text-xl font-sunday font-semibold text-black ">
+                <h3 className="text-2xl font-sunday font-semibold text-black">
                   {award.title}
                 </h3>
-                <p className="text-md font-josefin italic text-gray-800">
+                <p className="text-lg font-josefin italic text-gray-800">
                   {award.description}
                 </p>
               </div>
 
               {/* Right leaf */}
-              <img src={leafIcon} alt="leaf" className=" h-20 ml-2" />
+              <img src={leafIcon} alt="leaf" className="h-[14vh] ml-2" />
             </div>
           ))}
         </div>

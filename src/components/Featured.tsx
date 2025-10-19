@@ -28,7 +28,7 @@ const Featured: React.FC = () => {
   return (
     <section
       id="featured"
-      className="flex w-screen h-screen justify-center items-center py-24 bg-white"
+      className="flex w-screen h-screen justify-center items-center py-24"
     >
       <div
         id="featured-section-container"
