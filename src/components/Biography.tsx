@@ -5,14 +5,14 @@ const Biography: React.FC = () => {
   return (
     <section
       id="biography"
-      className="cursor-browsingWhite flex h-screen w-screen bg-cover"
+      className="relative cursor-browsingWhite flex h-screen w-screen bg-cover"
       style={{ backgroundImage: `url(${bioBg})` }}
     >
+      <div className="absolute inset-0 bg-black/10 z-10"></div>{" "}
       <div id="sideNavSpace" className="h-screen w-[12vw] "></div>
-
       <div
         id="biography-section-container"
-        className="h-screen w-[88vw] flex flex-col justify-center items-center"
+        className="h-screen w-[88vw] z-20 flex flex-col justify-center items-center"
       >
         <h1 className="text-5xl font-playfair font-bold mb-4 text-white">
           BIOGRAPHY
@@ -22,30 +22,33 @@ const Biography: React.FC = () => {
           id="biography-text"
           className="max-w-4xl text-lg leading-relaxed text-white text-justify mb-8"
         >
-          Born in Samobor and stuff. Also personal stuff Always been the outlier
-          who felt the urge to right every wrong since age three. Driven, joyful
-          people can be a handful — and tend to piss off those at war with
-          themselves. Sticking to the belief that “feeling too deeply” isn't a
-          flaw helped me connect, stay in tune with myself, and live more richly
-          — messier, but truer. Paired with my insufferable hunger for adventure
-          and change, you can bet it has led me through some of the ugliest,
-          most brutal — but also magnificent and transformative — times of my
-          life.
-          <p />
-          <p
-            id="biography-text"
-            className="max-w-4xl text-lg leading-relaxed text-white text-justify mb-8"
-          ></p>
-          My proudest accomplishments aren't on my résumé, so I'll put them
-          here: I've spoken up while trembling, pushed through anxiety that made
-          me vomit, stood my ground even when I was told to let things go, and
-          gotten up after fainting from fear. Even when the outcome wouldn't
-          change, I still screamed — because someone had to. Or at least so they
-          know there's one bitch who doesn't go quietly. I still get scared, but
-          now I know it means I'm growing, and that I have — or will acquire —
-          the tools to overcome whatever challenge comes next. I've always been
-          more afraid of betraying my values and dreams than of failing or being
-          overlooked.
+          Born in a small Croatian town with big dreams and even bigger guts (or
+          so I like to tell myself as I strive to be that way) — and an
+          insatiable yearning for experience. Years of grit, perseverance, and
+          countless challenges helped shape who I am: not perfect, but always
+          doing my best. I've always had a knack for both creativity and
+          problem-solving, from childhood to today. Endlessly hungry for other
+          people's stories, I gobble them up and shine in moments of genuine
+          connection. If you can't find me working, I'm probably out on an
+          adventure, attending an event, or lending my time to philanthropy.
+        </p>
+        <p
+          id="biography-text"
+          className="max-w-4xl text-lg leading-relaxed text-white text-justify mb-8"
+        >
+          I believe there's no way to “win the game of life” because there's no
+          summit — the goal is to play, and to play together. My proudest
+          accomplishments aren't on my résumé, so I'll put them here: I've
+          spoken up while trembling, pushed through anxiety that made me sick,
+          stood my ground when I was told to let things go, and gotten up after
+          fainting from fear. Through it all, I've learned that I'm far more
+          afraid of betraying my values and dreams than of failing or being
+          overlooked. Though this is just the beginning, I'm excited for the
+          many mountains — both metaphorical and literal — that I still have yet
+          to climb.
+        </p>
+        <p className=" max-w-4xl text-lg leading-relaxed text-white text-justify mb-8">
+          I can't wait to hear the stories you have to tell.
         </p>
         <a href="#contact">
           <button

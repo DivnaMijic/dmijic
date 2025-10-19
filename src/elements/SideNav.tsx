@@ -36,6 +36,8 @@ const allSections = [
   "truly",
   "biography",
   "contact",
+  "awards",
+  "featured",
 ];
 
 const sectionToNav: Record<string, string> = {
@@ -74,6 +76,7 @@ const SideNav: React.FC = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 2;
 
+      // Update active section
       for (const id of allSections) {
         const el = document.getElementById(id);
         if (!el) continue;
@@ -92,11 +95,40 @@ const SideNav: React.FC = () => {
         }
       }
 
+      // Determine nav visibility
       const aboutEl = document.getElementById("about");
-      if (aboutEl) {
-        const trigger = aboutEl.offsetTop - window.innerHeight / 2;
-        setShowNav(window.scrollY >= trigger);
+      const aboutTrigger = aboutEl
+        ? aboutEl.offsetTop - window.innerHeight / 2
+        : 0;
+
+      const awardsEl = document.getElementById("awards");
+      const featuredEl = document.getElementById("featured");
+
+      let hideNav = false;
+
+      if (awardsEl) {
+        const top = awardsEl.offsetTop;
+        const bottom = top + awardsEl.offsetHeight;
+        if (
+          window.scrollY + window.innerHeight / 2 >= top &&
+          window.scrollY <= bottom
+        ) {
+          hideNav = true;
+        }
       }
+
+      if (featuredEl) {
+        const top = featuredEl.offsetTop;
+        const bottom = top + featuredEl.offsetHeight;
+        if (
+          window.scrollY + window.innerHeight / 2 >= top &&
+          window.scrollY <= bottom
+        ) {
+          hideNav = true;
+        }
+      }
+
+      setShowNav(!hideNav && window.scrollY >= aboutTrigger);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -150,19 +182,15 @@ const SideNav: React.FC = () => {
 
           let parentLinkColor = "#000000";
 
-          if (inTrulyOrBio) {
-            parentLinkColor = "#FFFFFF";
-          } else if (inProfOrLead) {
-            parentLinkColor =
-              section.id === "experience" ? "#FFFFFF" : "#FFFFFF";
-          } else if (inEducation) {
+          if (inTrulyOrBio) parentLinkColor = "#FFFFFF";
+          else if (inProfOrLead) parentLinkColor = "#FFFFFF";
+          else if (inEducation)
             parentLinkColor =
               section.id === "experience" ? "#A0BEF4" : "#000000";
-          } else {
+          else
             parentLinkColor = isActiveParent
               ? sectionColors[section.id]?.text ?? "#000"
               : sectionColors[section.id]?.rest ?? "#000";
-          }
 
           const parentClass = isActiveParent
             ? "scale-110 text-2xl font-bold px-6 transition-transform duration-300 ease-in-out"
@@ -196,19 +224,16 @@ const SideNav: React.FC = () => {
                     const isActiveSub = activeSub === child.id;
                     let childColor = "#000000";
 
-                    if (inTrulyOrBio) {
-                      childColor = "#FFFFFF";
-                    } else if (child.id === "biography" && isActiveSub) {
+                    if (inTrulyOrBio) childColor = "#FFFFFF";
+                    else if (child.id === "biography" && isActiveSub)
                       childColor = "#000000";
-                    } else if (inProfOrLead) {
-                      childColor = "#FFFFFF";
-                    } else if (inEducation) {
+                    else if (inProfOrLead) childColor = "#FFFFFF";
+                    else if (inEducation)
                       childColor = isActiveSub ? "#A0BEF4" : "#000000";
-                    } else {
+                    else
                       childColor = isActiveSub
                         ? sectionColors[child.id]?.text ?? "#000"
                         : sectionColors[section.id]?.rest ?? "#000";
-                    }
 
                     const childClass = isActiveSub
                       ? "font-bold scale-105 transition-transform duration-300 ease-in-out"

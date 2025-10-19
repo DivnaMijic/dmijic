@@ -129,4 +129,12 @@ export const projects = [
     tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
     type: "video",
   },
+  {
+    src: "media/videos/battle-display.mp4",
+    title: "Battle Display Screen",
+    description:
+      "A display keeping the status of current and future matches during a charity gaming tournament",
+    tech: ["Adobe Photoshop", "Adobe Illustrator", "Canva"],
+    type: "video",
+  },
 ];

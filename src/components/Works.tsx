@@ -93,7 +93,6 @@ const Works: React.FC = () => {
                   />
                 )}
 
-                {/* Overlay */}
                 <div
                   className={`absolute inset-0 bg-black bg-opacity-80 flex flex-col justify-center items-center text-center p-4 text-white transition-opacity duration-300 ${
                     openIndex === i

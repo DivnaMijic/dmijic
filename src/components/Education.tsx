@@ -36,22 +36,6 @@ const Education: React.FC = () => {
                 Computing, Cum Laude.
               </p>
             </div>
-
-            <div className="text-left text-xl font-suranna">2021 - 2024</div>
-            <div className="text-left">
-              <h3 className="text-xl font-dmserif font-semibold">
-                RIT Croatia
-              </h3>
-              <h4 className="font-josefin font-light text-md ">
-                Zagreb, Croatia
-              </h4>
-              <p className="font-josefin font-thin  text-xl mt-2 leading-relaxed">
-                Work in an international environment, responsible for delegating
-                tasks to designers and creation of promotional materials such as
-                posters, tote bags, social media posts, and banners.
-              </p>
-            </div>
-
             {/* Row 2 */}
             <div className="text-left text-xl font-suranna">2018 - 2021</div>
             <div className="text-left">
@@ -66,18 +50,20 @@ const Education: React.FC = () => {
                 classes, performing and film arts, radio and writing.
               </p>
             </div>
-
-            <div className="text-left text-xl font-suranna">2017 - 2018</div>
+            <div className="text-left text-xl font-suranna">2021 - 2024</div>
             <div className="text-left">
-              <h3 className="text-xl font-dmserif font-bold">
-                IX. College-Preparatory High School
+              <h3 className="text-xl font-dmserif font-semibold">
+                RIT Croatia
               </h3>
               <h4 className="font-josefin font-light text-md ">
                 Zagreb, Croatia
               </h4>
-              <p className="text-lg font-josefin font-thin color-blaxl mt-2 leading-relaxed">
-                General college-preparatory high school in Zagreb with an
-                intensive study program.
+              <p className="font-josefin font-thin  text-xl mt-2 leading-relaxed">
+                Courses held entirely in English, covering a plethora of skills
+                including, but not limited to, Java, CSS, HTML, JavaScript,
+                MySQL, PHP, TypeScript, SQL, Adobe Photoshop and Illustrator,
+                Maya Autodesk, DaVinci Resolve, Lightroom, Audacity, Figma
+                (wireframing), and more.
               </p>
             </div>
           </div>

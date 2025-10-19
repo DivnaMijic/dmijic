@@ -71,7 +71,7 @@ const Leadership: React.FC = () => {
               <ul className="list-disc list-inside text-sm mt-2 leading-relaxed">
                 <li className="font-josefin font-light text-lg leading-relaxed">
                   Head of the Department of Social Activities in the Council of
-                  Students of Polytechnics & Colleges of the Re of Croatia
+                  Students of Polytechnics & Colleges of the Republic of Croatia
                 </li>
                 <li className="font-josefin font-light text-lg leading-relaxed">
                   Head of the Department of Events & Finances and Communications

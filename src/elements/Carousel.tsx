@@ -57,7 +57,7 @@ const Carousel: React.FC<CarouselProps> = ({
   }, [images.length]);
 
   return (
-    <div className="relative w-[75vw] h-auto flex justify-center mt-16">
+    <div className="relative w-[75vw] h-auto flex justify-center ">
       {/* Left arrow */}
       <div className="absolute inset-y-0 left-0 w-1/6 z-30 flex items-center justify-start pl-4">
         <img
@@ -79,7 +79,7 @@ const Carousel: React.FC<CarouselProps> = ({
       </div>
 
       {/* Slides */}
-      <div className="overflow-hidden w-full" style={{ height }}>
+      <div className="overflow-hidden w-full mb-16" style={{ height }}>
         <div
           className="flex transition-transform duration-700 ease-in-out h-full"
           style={{ transform: `translateX(-${current * 100}%)` }}

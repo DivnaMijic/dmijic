@@ -26,20 +26,6 @@ export const carouselImages = {
     "media/images/wfl-zagreb-6.png",
     "media/images/wfl-zagreb-7.png",
   ],
-
-  planetAyurveda: [
-    "media/images/planet-1.png",
-    "media/images/planet-2.png",
-    "media/images/planet-3.png",
-    "media/images/planet-4.png",
-    "media/images/planet-5.png",
-    "media/images/planet-6.png",
-    "media/images/planet-7.png",
-    "media/images/planet-8.png",
-    "media/images/planet-9.png",
-    "media/images/planet-10.png",
-  ],
-
   WFLRedeemVoucher: [
     "media/images/redeem-voucher-1.png",
     "media/images/redeem-voucher-2.png",
@@ -54,5 +40,17 @@ export const carouselImages = {
     "media/images/redeem-voucher-11.png",
     "media/images/redeem-voucher-12.png",
     "media/images/redeem-voucher-13.png",
+  ],
+
+  planetAyurveda: [
+    "media/images/planet-1.png",
+    "media/images/planet-2.png",
+    "media/images/planet-3.png",
+    "media/images/planet-4.png",
+    "media/images/planet-5.png",
+    "media/images/planet-6.png",
+    "media/images/planet-7.png",
+    "media/images/planet-9.png",
+    "media/images/planet-10.png",
   ],
 };

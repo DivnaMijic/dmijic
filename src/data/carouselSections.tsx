@@ -31,12 +31,7 @@ export const carouselSections = [
     id: "planetAyurveda",
     title: "Planet Ayurveda Webshop",
     buttonText: "Not yet !",
-    tech: [
-      "Odoo",
-      "Adobe Illustrator, Photoshop",
-      "Adobe Photoshop",
-      "HTML, CSS",
-    ],
+    tech: ["Odoo", "Adobe Illustrator, Photoshop", "HTML, CSS"],
     description:
       "Web shop with over two thousand products including full-stack development, database management, and graphic & web design.",
     images: carouselImages.planetAyurveda,

@@ -9,6 +9,9 @@ import Biography from "./components/Biography";
 import Contact from "./components/Contact";
 import SideNav from "./elements/SideNav";
 import Works from "./components/Works";
+import Footer from "./elements/Footer";
+import Featured from "./components/Featured";
+import Awards from "./components/Awards";
 
 function App() {
   return (
@@ -20,9 +23,12 @@ function App() {
       <Education />
       <Leadership />
       <Works />
+      <Awards />
       <Truly />
       <Biography />
       <Contact />
+      <Featured />
+      <Footer />
     </div>
   );
 }
