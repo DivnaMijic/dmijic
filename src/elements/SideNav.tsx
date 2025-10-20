@@ -103,8 +103,6 @@ const SideNav: React.FC = () => {
       if (awardsEl && trulyEl) {
         const awardsTop = awardsEl.offsetTop;
         const trulyTop = trulyEl.offsetTop;
-
-        // Hide nav only strictly within Awards range, not overlapping Truly
         if (
           window.scrollY + window.innerHeight / 2 >= awardsTop &&
           window.scrollY + window.innerHeight / 2 < trulyTop
