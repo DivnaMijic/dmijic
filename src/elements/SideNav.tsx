@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-/**
- * SideNav behavior:
- * - professional & leadership: parent + active sub blue+bold, everything else WHITE, lines WHITE
- * - education: parent + education blue+bold, lines BLUE, everything else BLACK
- * - detailed-bio (biography/truly): everything WHITE
- */
-
 const navSections = [
   { id: "about", label: "about" },
   {
@@ -103,15 +96,18 @@ const SideNav: React.FC = () => {
 
       const awardsEl = document.getElementById("awards");
       const featuredEl = document.getElementById("featured");
+      const trulyEl = document.getElementById("truly");
 
       let hideNav = false;
 
-      if (awardsEl) {
-        const top = awardsEl.offsetTop;
-        const bottom = top + awardsEl.offsetHeight;
+      if (awardsEl && trulyEl) {
+        const awardsTop = awardsEl.offsetTop;
+        const trulyTop = trulyEl.offsetTop;
+
+        // Hide nav only strictly within Awards range, not overlapping Truly
         if (
-          window.scrollY + window.innerHeight / 2 >= top &&
-          window.scrollY <= bottom
+          window.scrollY + window.innerHeight / 2 >= awardsTop &&
+          window.scrollY + window.innerHeight / 2 < trulyTop
         ) {
           hideNav = true;
         }
@@ -128,7 +124,9 @@ const SideNav: React.FC = () => {
         }
       }
 
-      setShowNav(!hideNav && window.scrollY >= aboutTrigger);
+      setShowNav(
+        !hideNav && (window.scrollY >= aboutTrigger || activeParent === "truly")
+      );
     };
 
     window.addEventListener("scroll", handleScroll);

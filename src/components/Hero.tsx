@@ -61,8 +61,8 @@ const Hero: React.FC = () => {
           THIS IS DIVNA
         </h1>
 
-        <h2 className="text-xl font-dmserif italic mb-8 text-gray-200 drop-shadow-md z-10">
-          photographer, programmer & dreamer
+        <h2 className="text-xl font-dmserif italic mb-8 text-white drop-shadow-md">
+          developer, photographer, programmer & dreamer
         </h2>
 
         <a href="#about">
