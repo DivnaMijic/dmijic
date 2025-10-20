@@ -15,25 +15,29 @@ const Hero: React.FC = () => {
       id="hero"
       className="cursor-browsingWhite relative flex flex-col items-center justify-center h-screen w-screen overflow-hidden "
     >
-      {/* Navigation */}
       <ul className="flex gap-32 justify-center py-8 text-white font-playfair z-10 absolute top-0 left-0 w-full">
         {["ABOUT", "EXPERIENCE", "WORKS", "BIOGRAPHY", "CONTACT"].map(
-          (item) => (
-            <li key={item}>
-              <a
-                href={`#${item.toLowerCase()}`}
-                className="cursor-clicking hover:cursor-clicking
-                relative font-semibold text-white text-lg
-                after:content-[''] after:absolute after:left-0 after:bottom-0 
-                after:w-0 after:h-[2px] after:bg-[#FFFF] 
-                after:transition-all after:duration-300 
-                hover:after:w-full hover:text-white
-              "
-              >
-                {item}
-              </a>
-            </li>
-          )
+          (item) => {
+            const targetId =
+              item === "BIOGRAPHY" ? "truly" : item.toLowerCase();
+
+            return (
+              <li key={item}>
+                <a
+                  href={`#${targetId}`}
+                  className="cursor-clicking hover:cursor-clicking
+            relative font-semibold text-white text-lg
+            after:content-[''] after:absolute after:left-0 after:bottom-0 
+            after:w-0 after:h-[2px] after:bg-[#FFFF] 
+            after:transition-all after:duration-300 
+            hover:after:w-full hover:text-white
+          "
+                >
+                  {item}
+                </a>
+              </li>
+            );
+          }
         )}
       </ul>
 

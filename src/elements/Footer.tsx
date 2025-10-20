@@ -8,16 +8,21 @@ const Footer: React.FC = () => {
 
       <ul className="flex gap-8 text-sm text-gray-300">
         {["About", "Experience", "Works", "Biography", "Contact"].map(
-          (item) => (
-            <li key={item}>
-              <a
-                href={`#${item.toLowerCase()}`}
-                className="hover:text-white transition-colors"
-              >
-                {item}
-              </a>
-            </li>
-          )
+          (item) => {
+            const targetId =
+              item === "Biography" ? "truly" : item.toLowerCase();
+
+            return (
+              <li key={item}>
+                <a
+                  href={`#${targetId}`}
+                  className="hover:text-white transition-colors"
+                >
+                  {item}
+                </a>
+              </li>
+            );
+          }
         )}
       </ul>
 
