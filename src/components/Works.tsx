@@ -73,7 +73,7 @@ const Works: React.FC = () => {
             {projects.map((project, i) => (
               <div
                 key={i}
-                className="relative w-full mb-4 overflow-hidden cursor-clickings hover:scale-105 transition-transform duration-300 ease-in-out transform"
+                className="relative w-full mb-4 overflow-hidden cursor-clicking hover:scale-105 transition-transform duration-300 ease-in-out transform"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
               >
                 {project.type === "image" ? (

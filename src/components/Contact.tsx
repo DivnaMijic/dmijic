@@ -16,9 +16,13 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
-    alert("Message sent!");
-    setFormData({ fullName: "", email: "", subject: "", message: "" });
+
+    const subject = encodeURIComponent(formData.subject);
+    const body = encodeURIComponent(
+      `Name: ${formData.fullName}\nEmail: ${formData.email}\n\n${formData.message}`
+    );
+
+    window.location.href = `mailto:divna.mijic@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (

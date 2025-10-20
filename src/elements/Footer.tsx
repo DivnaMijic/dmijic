@@ -3,8 +3,26 @@ import { Github, Linkedin, Mail } from "lucide-react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="w-screen bg-black text-white py-6 flex flex-col items-center justify-center border-t border-white/10">
-      <div className="flex space-x-6 mb-3">
+    <footer className="w-screen bg-black text-white py-8 flex flex-col items-center justify-center border-t border-white/10 space-y-6">
+      {/* Content section */}
+
+      <ul className="flex gap-8 text-sm text-gray-300">
+        {["About", "Experience", "Works", "Biography", "Contact"].map(
+          (item) => (
+            <li key={item}>
+              <a
+                href={`#${item.toLowerCase()}`}
+                className="hover:text-white transition-colors"
+              >
+                {item}
+              </a>
+            </li>
+          )
+        )}
+      </ul>
+
+      {/* Social links */}
+      <div className="flex space-x-6">
         <a
           href="https://github.com/DivnaMijic"
           target="_blank"
@@ -28,15 +46,16 @@ const Footer: React.FC = () => {
           <Mail size={22} />
         </a>
         <a
-          href="https://yourwebsite.com"
+          href="https://divnamijic.github.io/dmijic/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-gray-300 transition-colors text-sm font-medium"
         >
-          divnamijic.com
+          dmijic
         </a>
       </div>
 
+      {/* Footer credit */}
       <p className="text-xs text-gray-400">
         Created by <span className="font-semibold text-white">Divna Mijić</span>{" "}
         © {new Date().getFullYear()} All rights reserved.
