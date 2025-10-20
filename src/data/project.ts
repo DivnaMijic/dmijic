@@ -113,14 +113,14 @@ export const projects = [
   },
   {
     src: "media/videos/aha.mp4",
-    title: "Bake Sale Flyer",
+    title: "AHA Holistic Academy Promo Video",
     description: "A promotional video for a holistic academy.",
     tech: ["Adobe Photoshop", "Adobe Illustrator"],
     type: "video",
   },
   {
     src: "media/videos/sit-sip-connect.mp4",
-    title: "Bake Sale Flyer",
+    title: "Sit Sip Connect Event Flyer",
     description:
       "Flyer created to promote an event encouraging the student body to meet the members of the student government.",
     tech: ["Adobe Photoshop", "Adobe Illustrator"],

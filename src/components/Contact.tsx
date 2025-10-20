@@ -39,6 +39,7 @@ const Contact: React.FC = () => {
           src="media/images/contact-photo.png"
           alt="contact-photo"
           className="w-[35vw] object-contain mb-12"
+          loading="lazy"
         />
 
         <form
