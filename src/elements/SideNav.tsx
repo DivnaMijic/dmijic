@@ -75,6 +75,7 @@ const SideNav: React.FC = () => {
         if (!el) continue;
         const top = el.offsetTop;
         const bottom = top + el.offsetHeight;
+
         if (scrollPosition >= top && scrollPosition < bottom) {
           const parent = sectionToNav[id] ?? id;
           if (id === "experience") {
@@ -93,33 +94,25 @@ const SideNav: React.FC = () => {
       const aboutTrigger = aboutEl
         ? aboutEl.offsetTop - window.innerHeight / 2
         : 0;
-
       const awardsEl = document.getElementById("awards");
       const featuredEl = document.getElementById("featured");
       const trulyEl = document.getElementById("truly");
 
+      // Hide nav strictly within Awards range
+      const offset = 200; // like we did before
       let hideNav = false;
 
       if (awardsEl && trulyEl) {
-        const awardsTop = awardsEl.offsetTop;
-        const trulyTop = trulyEl.offsetTop;
-        if (
-          window.scrollY + window.innerHeight / 2 >= awardsTop &&
-          window.scrollY + window.innerHeight / 2 < trulyTop
-        ) {
+        const awardsTop = awardsEl.offsetTop - offset;
+        const trulyTop = trulyEl.offsetTop - offset;
+        if (window.scrollY >= awardsTop && window.scrollY < trulyTop)
           hideNav = true;
-        }
       }
 
       if (featuredEl) {
-        const top = featuredEl.offsetTop;
+        const top = featuredEl.offsetTop - offset;
         const bottom = top + featuredEl.offsetHeight;
-        if (
-          window.scrollY + window.innerHeight / 2 >= top &&
-          window.scrollY <= bottom
-        ) {
-          hideNav = true;
-        }
+        if (window.scrollY >= top && window.scrollY < bottom) hideNav = true;
       }
 
       setShowNav(
@@ -128,7 +121,7 @@ const SideNav: React.FC = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll();
+    handleScroll(); // initial check
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -143,7 +136,6 @@ const SideNav: React.FC = () => {
   const inProfOrLead = inProfessional || inLeadership;
   const inTrulyOrBio = activeParent === "truly" || activeSub === "biography";
 
-  // LINE COLOR RULES
   const lineColor = inTrulyOrBio
     ? "#FFFFFF"
     : inProfOrLead
@@ -175,7 +167,6 @@ const SideNav: React.FC = () => {
 
         {navSections.map((section) => {
           const isActiveParent = activeParent === section.id;
-
           let parentLinkColor = "#000000";
 
           if (inTrulyOrBio) parentLinkColor = "#FFFFFF";
