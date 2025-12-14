@@ -3,7 +3,7 @@ import { Github, Linkedin, Mail } from "lucide-react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="w-screen bg-black text-white py-8 flex flex-col items-center justify-center border-t border-white/10 space-y-6">
+    <footer className="w-[100svw] bg-black text-white py-8 flex flex-col items-center justify-center border-t border-white/10 space-y-6 box-border">
       {/* Content section */}
 
       <ul className="flex gap-8 text-sm text-gray-300">

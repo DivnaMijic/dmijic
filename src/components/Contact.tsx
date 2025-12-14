@@ -26,25 +26,31 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="cursor-browsingYellow flex w-screen">
-      <div id="sideNavSpace" className="h-screen w-[12vw] "></div>
+    <section
+      id="contact"
+      className="snap-start cursor-browsingYellow flex flex-col md:flex-row w-[100svw] min-h-[150svh] box-border"
+    >
+      {/* Side nav space */}
+      <div className="hidden md:block h-screen w-[12vw]"></div>
 
-      <div
-        id="contact-section-container"
-        className="w-[88vw] h-[150vh] flex flex-col justify-center items-center"
-      >
-        <h2 className="text-5xl font-playfair font-bold mb-8">CONTACT</h2>
+      {/* Main content */}
+      <div className="w-full md:w-[88vw] flex flex-col justify-center items-center px-4 sm:px-6 md:px-8 py-12">
+        <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-playfair font-bold mb-6 sm:mb-8 text-center md:text-left">
+          CONTACT
+        </h2>
 
+        {/* Contact image */}
         <img
-          src="media/images/contact-photo.png"
+          src="media/images/contact-photo.webp"
           alt="contact-photo"
-          className="w-[35vw] object-contain mb-12"
+          className="w-[70vw] sm:w-[50vw] md:w-[35vw] object-contain mb-8 sm:mb-12"
           loading="lazy"
         />
 
+        {/* Form */}
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col w-full max-w-lg gap-6"
+          className="flex flex-col w-full max-w-lg gap-4 sm:gap-6"
         >
           <input
             type="text"
@@ -81,15 +87,15 @@ const Contact: React.FC = () => {
             placeholder="Message"
             value={formData.message}
             onChange={handleChange}
-            className="border-b-2 border-black bg-transparent px-2 pt-[5.6rem] pb-2 focus:outline-none focus:border-[#ECD586] h-32 resize-none"
+            className="border-b-2 border-black bg-transparent px-2 pt-6 pb-2 focus:outline-none focus:border-[#ECD586] h-32 sm:h-40 resize-none"
             required
           ></textarea>
 
           <button
             type="submit"
-            className="cursor-clicking hover:cursor-clicking w-[10vw] self-center relative border bg-transparent rounded-none border-black text-black px-6 py-3 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#ECD586] hover:bg-black hover:text-white hover:border-black transition-all duration-300 group"
+            className="cursor-clicking hover:cursor-clicking w-full sm:w-auto self-center relative border bg-transparent rounded-none border-black text-black px-6 py-3 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#ECD586] hover:bg-black hover:text-white hover:border-black transition-all duration-300 group"
           >
-            <span className="relative z-10">send</span>
+            <span className="relative z-10">Send</span>
             <span className="absolute inset-0 overflow-hidden">
               <span
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent 

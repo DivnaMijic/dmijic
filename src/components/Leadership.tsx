@@ -4,7 +4,7 @@ const Leadership: React.FC = () => {
   return (
     <section
       id="leadership"
-      className="cursor-browsingWhite relative w-screen h-screen flex "
+      className="cursor-browsingWhite relative w-screen h-screen flex box-border "
     >
       <div id="sideNavSpace" className="h-screen w-[12vw] "></div>
 

@@ -1,26 +1,29 @@
 import React from "react";
-import bioBg from "/media/images/biography-photo.png";
+import bioBg from "/media/images/biography-photo.webp";
 
 const Biography: React.FC = () => {
   return (
     <section
       id="biography"
-      className="relative cursor-browsingWhite flex h-screen w-screen bg-cover"
+      className="cursor-browsingPink flex w-[100svw] h-[100svh] bg-white-100 items-center justify-end px-4 md:px-0 box-border"
       style={{ backgroundImage: `url(${bioBg})` }}
+      data-scroll-section
     >
-      <div className="absolute inset-0 bg-black/10 z-10"></div>{" "}
-      <div id="sideNavSpace" className="h-screen w-[12vw] "></div>
       <div
-        id="biography-section-container"
-        className="h-screen w-[88vw] z-20 flex flex-col justify-center items-center"
+        id="biography-content-container"
+        className="w-full md:w-[90svw] flex flex-col justify-center items-center gap-2 sm:gap-3 md:gap-4 text-center md:text-left px-2 sm:px-4"
       >
-        <h1 className="text-5xl font-playfair font-bold mb-4 text-white">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair text-left  font-bold text-white text-left mb-4">
           BIOGRAPHY
         </h1>
-        <h2 className="text-xl mb-8 text-white">part a few read</h2>
+        <h2 className="text-xs sm:text-sm md:text-base lg:text-lg mb-2 sm:mb-3 md:mb-4 text-white">
+          part a few read
+        </h2>
         <p
-          id="biography-text"
-          className="max-w-4xl text-lg leading-relaxed text-white text-justify mb-8"
+          className="text-white w-full sm:w-[85%] md:w-[75%] 
+          text-[12px] sm:text-sm md:text-base lg:text-lg xl:text-xl
+          text-justify mb-2 sm:mb-3 md:mb-4
+          leading-snug sm:leading-normal md:leading-relaxed"
         >
           Born in a small Croatian town with big dreams and even bigger guts (or
           so I like to tell myself as I strive to be that way) — and an
@@ -33,8 +36,10 @@ const Biography: React.FC = () => {
           adventure, attending an event, or lending my time to philanthropy.
         </p>
         <p
-          id="biography-text"
-          className="max-w-4xl text-lg leading-relaxed text-white text-justify mb-8"
+          className="text-white w-full sm:w-[85%] md:w-[75%] 
+          text-[12px] sm:text-sm md:text-base lg:text-lg xl:text-xl
+          text-justify mb-2 sm:mb-3 md:mb-4
+          leading-snug sm:leading-normal md:leading-relaxed"
         >
           I believe there's no way to “win the game of life” because there's no
           summit — the goal is to play, and to play together. My proudest
@@ -47,17 +52,17 @@ const Biography: React.FC = () => {
           many mountains — both metaphorical and literal — that I still have yet
           to climb.
         </p>
-        <p className=" max-w-4xl text-lg leading-relaxed text-white text-justify mb-8">
+        <p className="text-white w-full sm:w-[85%] md:w-[75%] text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg text-justify mb-2 sm:mb-3 md:mb-4 leading-snug sm:leading-snug md:leading-relaxed">
           I can't wait to hear the stories you have to tell.
         </p>
-        <a href="#contact">
+        <a href="#contact" data-scroll data-scroll-speed="1">
           <button
-            className="relative border rounded-none border-white bg-transparent text-white px-6 py-3 font-semibold 
-             hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#000] 
+            className="relative border rounded-none border-white bg-transparent text-white px-3 py-1 sm:px-4 sm:py-2 md:px-5 md:py-2 font-semibold 
+             hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[3px_3px_0_0_#000] 
              hover:bg-white hover:text-black hover:border-white 
-             transition-all duration-300 group cursor-clicking hover:cursor-clicking"
+             transition-all duration-300 group cursor-clicking"
           >
-            <span className="relative z-10">
+            <span className="relative z-10" data-scroll data-scroll-speed="1">
               Felt a connection? Contact me!
             </span>
             <span className="absolute inset-0 overflow-hidden">

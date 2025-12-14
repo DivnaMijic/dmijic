@@ -1,22 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 const Hero: React.FC = () => {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <section
       id="hero"
-      className="cursor-browsingWhite relative flex flex-col items-center justify-center h-screen w-screen overflow-hidden "
+      className="h-[100svh] w-[100svw] cursor-browsingWhite flex flex-col items-center justify-center box-border bg-hero-pattern bg-cover bg-center relative bg-[url(/public/media/images/photography/photo1.webp)]"
     >
-      <ul className="flex gap-32 justify-center py-8 text-white font-playfair z-10 absolute top-0 left-0 w-full">
-        {["ABOUT", "EXPERIENCE", "WORKS", "BIOGRAPHY", "CONTACT"].map(
+      <ul className="flex gap-8 py-4 pr-8 justify-end text-white font-playfair z-10 absolute top-0 left-0 w-full">
+        {["about", "works", "experience", "biography", "contact"].map(
           (item) => {
             const targetId =
               item === "BIOGRAPHY" ? "truly" : item.toLowerCase();
@@ -41,28 +32,9 @@ const Hero: React.FC = () => {
         )}
       </ul>
 
-      {/* Background video with parallax */}
-      <video
-        className="absolute inset-0 w-full h-full -z-10"
-        autoPlay
-        loop
-        muted
-        playsInline
-        style={{
-          transform: `translateY(${scrollY * 0.3}px) scale(1.2)`, // parallax effect
-          objectFit: "cover",
-          objectPosition: "center",
-        }}
-      >
-        <source src="media/videos/hero-bg.mp4" type="video/mp4" />
-        <source src="media/videos/hero-bg.webm" type="video/webm" />
-      </video>
-      <div className="absolute inset-0 bg-black/20 -z-10"></div>
-
-      {/* Content */}
       <div className="flex flex-col items-center justify-center z-10 text-center px-4">
         <h1 className="text-[13rem] pb-0 font-sunday text-white drop-shadow-lg">
-          THIS IS DIVNA
+          DIVNA MIJIC
         </h1>
 
         <h2 className="text-xl font-dmserif italic mb-8 text-white drop-shadow-md">

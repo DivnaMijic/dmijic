@@ -1,96 +1,132 @@
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import ExperienceItem from "../elements/ExperienceItem";
+import EducationItem from "../elements/EducationItem";
+import LeadershipItem from "../elements/LeadershipItem";
+import leadershipData from "../data/leadershipData";
+import experienceData from "../data/experienceData";
+import educationData from "../data/educationData";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const Experience: React.FC = () => {
   return (
     <section
       id="experience"
-      className="cursor-browsingWhite relative w-screen h-screen flex "
+      className="snap-start w-[100svw] h-[100svh] cursor-browsingWhite box-border"
     >
-      <div id="sideNavSpace" className="h-screen w-[12vw]"></div>
-
-      <video
-        className="absolute top-0 left-0 w-full h-full object-cover "
-        src="media/videos/website-bg.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
-
-      <div
-        id="experience-section-container"
-        className="w-[88vw] z-10 flex flex-col justify-center items-center"
+      <Swiper
+        modules={[Navigation, Pagination]}
+        navigation
+        pagination={{ clickable: true }}
+        slidesPerView={1}
+        spaceBetween={30}
+        style={{ height: "full", width: "full" }}
       >
-        <div id="experience-content-container" className="w-[75vw]">
-          <h2 className="text-7xl font-sunday font-semibold mb-16 text-left justify-left text-white z-10">
-            PROFESSIONAL EXPERIENCE
-          </h2>
+        <SwiperSlide
+          style={{
+            background: "#92CCD3",
+            display: "flex",
+            justifyContent: "right",
+            alignItems: "center",
+            color: "white",
+          }}
+        >
           <div
-            id="experience-grid"
-            className="grid grid-cols-[auto_1fr_auto_1fr] gap-x-12 gap-y-12 text-white w-[75vw]"
+            style={{
+              height: "full",
+              width: "90svw",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              color: "white",
+            }}
           >
-            <div className="text-left text-xl font-suranna ext-lg">2024</div>
-            <div className="text-left">
-              <h3 className="text-xl font-light font-dmserif">
-                SPREAD Agency, Junior Web Developer
-              </h3>
-              <h4 className="font-josefin  text-md ">Zagreb, Croatia</h4>
-              <p className="font-josefin font-light text-lg mt-2 leading-relaxed">
-                Developing websites and performing security checks. Provided
-                consistent client communication to offer the best services and
-                solutions for graphic design, website databases, graphics, and
-                visuals.
-              </p>
-            </div>
-
-            <div className="text-left text-xl font-suranna ext-lg">2023</div>
-            <div className="text-left">
-              <h3 className="text-xl font-light font-dmserif">
-                The European Independent Film Festival: ÉCU, Head of Graphic
-                Design Department
-              </h3>
-              <h4 className="font-josefin  text-md ">Paris, France</h4>
-              <p className="font-josefin font-light text-lg mt-2 leading-relaxed">
-                Work in an international environment, responsible for delegating
-                tasks to designers and creation of promotional materials such as
-                posters, tote bags, social media posts, and banners.
-              </p>
-            </div>
-
-            {/* Row 2 */}
-            <div className="text-left text-xl font-suranna ext-lg">
-              2022-2024
-            </div>
-            <div className="text-left">
-              <h3 className="text-xl font-light font-dmserif">
-                RIT Croatia, Professor's Assistant
-              </h3>
-              <h4 className="font-josefin  text-md ">RIT Croatia</h4>
-              <p className="font-josefin font-light text-lg mt-2 leading-relaxed">
-                Assisting in the Digital Survey I course, aiding students during
-                lectures on new media design, teaching how to use Adobe
-                Illustrator and Photoshop. Providing weekly tutoring hours for
-                freshmen outside of lectures.
-              </p>
-            </div>
-
-            <div className="text-left text-xl font-suranna ext-lg">
-              2019-2020
-            </div>
-            <div className="text-left">
-              <h3 className="text-xl font-light font-dmserif">
-                Family-owned Businesses, Freelance Web & E-commerce Support
-              </h3>
-              <h4 className="font-josefin  text-md ">Zagreb, Croatia</h4>
-              <p className="font-josefin font-light text-lg mt-2 leading-relaxed">
-                Assisting with content, layout, and SEO updates while fully
-                redesigning an e-commerce site, including product listings, UX,
-                checkout flow, and mobile responsiveness.
-              </p>
+            <div className="w-[60vw] flex flex-col justify-start items-start overflow-y-auto max-h-[100svh] py-20 scrollbar-none ">
+              <div className="sticky top-0 z-20">
+                <h2 className="text-7xl font-sunday font-semibold mb-16 text-left text-white">
+                  EXPERIENCE
+                </h2>
+              </div>
+              <div className=" overflow-y-auto scrollbar-none">
+                {experienceData.map((item, index) => (
+                  <ExperienceItem key={index} {...item} />
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </SwiperSlide>
+
+        <SwiperSlide
+          style={{
+            background: "#EFC0DD",
+            display: "flex",
+            justifyContent: "right",
+            alignItems: "center",
+            color: "white",
+          }}
+        >
+          <div
+            style={{
+              height: "full",
+              width: "90svw",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              color: "white",
+            }}
+          >
+            <div className="w-[60vw] flex flex-col justify-start items-start overflow-y-auto max-h-[100svh] py-20 scrollbar-none ">
+              <div className="sticky top-0 z-20">
+                <h2 className="text-7xl font-sunday font-semibold mb-16 text-left text-white">
+                  LEADERSHIP & IMPACT
+                </h2>
+              </div>
+              <div className=" overflow-y-auto scrollbar-none">
+                {leadershipData.map((item, index) => (
+                  <LeadershipItem key={index} {...item} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide
+          style={{
+            background: "#9B92D3",
+            display: "flex",
+            justifyContent: "right",
+            alignItems: "center",
+            color: "white",
+          }}
+        >
+          <div
+            style={{
+              height: "full",
+              width: "90svw",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              color: "white",
+            }}
+          >
+            <div className="w-[60vw] flex flex-col justify-start items-start overflow-y-auto max-h-[100svh] py-20 scrollbar-none ">
+              <div className="sticky top-0 z-20">
+                <h2 className="text-7xl font-sunday font-semibold mb-16 text-left text-white">
+                  EDUCATION
+                </h2>
+              </div>
+              <div className=" overflow-y-auto scrollbar-none">
+                {educationData.map((item, index) => (
+                  <EducationItem key={index} {...item} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
+      </Swiper>
     </section>
   );
 };

@@ -1,3 +1,29 @@
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
+@layer utilities {
+  .snap {
+    scroll-snap-type: var(--scroll-snap-direction) var(--scroll-snap-constraint);
+  }
+  .snap-y {
+    --scroll-snap-direction: y;
+  }
+  .snap-mandatory {
+    --scroll-snap-constraint: mandatory;
+  }
+  .snap-start {
+    scroll-snap-align: start;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 /* 1. Register the font BEFORE Tailwind directives */
 @font-face {
   font-family: "musty";
@@ -11,6 +37,53 @@
   src: url("../src/assets/fonts/edigo-demo.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+}
+
+/* Target arrows only inside #works-slider */
+#works-slider .swiper-button-prev {
+  left: 6svw !important; /* move right from left edge */
+  color: rgb(69, 69, 69);
+}
+
+#works-slider .swiper-button-next {
+  right: 6svw !important; /* move left from right edge */
+  color: rgb(69, 69, 69);
+}
+
+/* Adjust horizontal position */
+.swiper-button-prev,
+.swiper-button-next {
+  color: white; /* or whatever color matches your design */
+  width: 40px; /* optional: increase clickable area */
+  height: 40px;
+}
+
+.swiper-pagination-bullet {
+  background-color: white; /* normal color */
+  opacity: 0.5; /* optional transparency */
+}
+
+/* Active bullet */
+.swiper-pagination-bullet-active {
+  background-color: rgb(255, 255, 255); /* active color */
+  opacity: 1;
+}
+/* Move arrows inward from edges */
+.swiper-button-prev {
+  left: 17svw !important; /* move right from left edge */
+}
+
+.swiper-button-next {
+  right: 6svw !important; /* move left from right edge */
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none; /* IE 10+ */
+  scrollbar-width: none; /* Firefox */
 }
 
 @font-face {
@@ -71,6 +144,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   cursor: browsing;
+  overscroll-behavior: none;
 }
 
 h1 {

@@ -1,251 +1,204 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const navSections = [
-  { id: "about", label: "about" },
-  {
-    id: "experience",
-    label: "experience",
-    children: [
-      { id: "professional", label: "professional" },
-      { id: "education", label: "education" },
-      { id: "leadership", label: "leadership" },
-    ],
-  },
-  { id: "works", label: "works" },
-  {
-    id: "truly",
-    label: "biography",
-    children: [{ id: "biography", label: "detailed bio" }],
-  },
-  { id: "contact", label: "contact" },
+  { id: "about", label: "About" },
+  { id: "works", label: "Works" },
+  { id: "experience", label: "Experience" },
+  { id: "truly", label: "Biography" },
+  { id: "contact", label: "Contact" },
 ];
 
-const allSections = [
-  "about",
-  "experience",
-  "education",
-  "leadership",
-  "works",
-  "truly",
-  "biography",
-  "contact",
-  "awards",
-  "featured",
-];
-
-const sectionToNav: Record<string, string> = {
-  about: "about",
-  experience: "experience",
-  professional: "experience",
-  education: "experience",
-  leadership: "experience",
-  works: "works",
-  truly: "truly",
-  biography: "truly",
-  contact: "contact",
+const activeColors: Record<string, string> = {
+  about: "#EAA3F4",
+  works: "#B9ADED",
+  experience: "#FFFFFF",
+  truly: "#FFFFFF",
+  contact: "#ECD586",
 };
 
-const sectionColors: Record<
-  string,
-  { line: string; text: string; rest: string }
-> = {
-  about: { line: "#EAA3F4", text: "#EAA3F4", rest: "#000000" },
-  experience: { line: "#A0BEF4", text: "#A0BEF4", rest: "#000000" },
-  education: { line: "#A0BEF4", text: "#A0BEF4", rest: "#000000" },
-  professional: { line: "#A0BEF4", text: "#A0BEF4", rest: "#000000" },
-  leadership: { line: "#FFFFFF", text: "#FFFFFF", rest: "#000000" },
-  works: { line: "#B9ADED", text: "#B9ADED", rest: "#000000" },
-  truly: { line: "#000000", text: "#000000", rest: "#000000" },
-  biography: { line: "#FFFFFF", text: "#FFFFFF", rest: "#000000" },
-  contact: { line: "#ECD586", text: "#ECD586", rest: "#000000" },
-};
+const forceWhiteSections = ["experience", "truly"];
+const THICK_LINE_HEIGHT = 20;
 
 const SideNav: React.FC = () => {
-  const [activeParent, setActiveParent] = useState<string>("about");
-  const [activeSub, setActiveSub] = useState<string | null>(null);
-  const [showNav, setShowNav] = useState(false);
+  const [activeSection, setActiveSection] = useState("about");
+  const [visible, setVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [lineTop, setLineTop] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      const windowHeight = window.innerHeight;
+
+      // Check About visibility (50%)
+      const aboutEl = document.getElementById("about");
+      const contactEl = document.getElementById("contact");
+
+      if (aboutEl && contactEl) {
+        const aboutRect = aboutEl.getBoundingClientRect();
+        const contactRect = contactEl.getBoundingClientRect();
+
+        const aboutVisible =
+          aboutRect.top + aboutRect.height * 0.5 < windowHeight;
+        const contactHidden = contactRect.top + contactRect.height * 0.5 < 0;
+
+        setVisible(aboutVisible && !contactHidden);
+      }
 
       // Update active section
-      for (const id of allSections) {
-        const el = document.getElementById(id);
+      const midPoint = window.scrollY + windowHeight * 0.4;
+      for (const section of navSections) {
+        const el = document.getElementById(section.id);
         if (!el) continue;
         const top = el.offsetTop;
         const bottom = top + el.offsetHeight;
-
-        if (scrollPosition >= top && scrollPosition < bottom) {
-          const parent = sectionToNav[id] ?? id;
-          if (id === "experience") {
-            setActiveParent("experience");
-            setActiveSub("professional");
-          } else {
-            setActiveParent(parent);
-            setActiveSub(id !== parent ? id : null);
-          }
+        if (midPoint >= top && midPoint < bottom) {
+          setActiveSection(section.id);
           break;
         }
       }
-
-      // Determine nav visibility
-      const aboutEl = document.getElementById("about");
-      const aboutTrigger = aboutEl
-        ? aboutEl.offsetTop - window.innerHeight / 2
-        : 0;
-      const awardsEl = document.getElementById("awards");
-      const featuredEl = document.getElementById("featured");
-      const trulyEl = document.getElementById("truly");
-
-      // Hide nav strictly within Awards range
-      const offset = 200; // like we did before
-      let hideNav = false;
-
-      if (awardsEl && trulyEl) {
-        const awardsTop = awardsEl.offsetTop - offset;
-        const trulyTop = trulyEl.offsetTop - offset;
-        if (window.scrollY >= awardsTop && window.scrollY < trulyTop)
-          hideNav = true;
-      }
-
-      if (featuredEl) {
-        const top = featuredEl.offsetTop - offset;
-        const bottom = top + featuredEl.offsetHeight;
-        if (window.scrollY >= top && window.scrollY < bottom) hideNav = true;
-      }
-
-      setShowNav(
-        !hideNav && (window.scrollY >= aboutTrigger || activeParent === "truly")
-      );
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // initial check
+    handleScroll();
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const activeIndex = navSections.findIndex((s) => s.id === activeParent);
-  const parentIndexSafe = activeIndex >= 0 ? activeIndex : 0;
+  useEffect(() => {
+    const handleScroll = () => {
+      const windowHeight = window.innerHeight;
+      const windowWidth = window.innerWidth;
 
-  const inEducation = activeSub === "education";
-  const inProfessional =
-    activeSub === "professional" ||
-    (activeParent === "experience" && activeSub === "professional");
-  const inLeadership = activeSub === "leadership";
-  const inProfOrLead = inProfessional || inLeadership;
-  const inTrulyOrBio = activeParent === "truly" || activeSub === "biography";
+      // Hide nav entirely if screen is too small
+      if (windowWidth < 1024) {
+        // adjust 1024px as needed
+        setVisible(false);
+        return;
+      }
 
-  const lineColor = inTrulyOrBio
+      // Check About visibility (50%)
+      const aboutEl = document.getElementById("about");
+      const contactEl = document.getElementById("contact");
+
+      if (aboutEl && contactEl) {
+        const aboutRect = aboutEl.getBoundingClientRect();
+        const contactRect = contactEl.getBoundingClientRect();
+
+        const aboutVisible =
+          aboutRect.top + aboutRect.height * 0.5 < windowHeight;
+        const contactHidden = contactRect.top + contactRect.height * 0.5 < 0;
+
+        setVisible(aboutVisible && !contactHidden);
+      }
+
+      // Update active section
+      const midPoint = window.scrollY + windowHeight * 0.4;
+      for (const section of navSections) {
+        const el = document.getElementById(section.id);
+        if (!el) continue;
+        const top = el.offsetTop;
+        const bottom = top + el.offsetHeight;
+        if (midPoint >= top && midPoint < bottom) {
+          setActiveSection(section.id);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll); // update on resize
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
+
+  // Update thick line position
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const activeIndex = navSections.findIndex((s) => s.id === activeSection);
+    if (activeIndex === -1) return;
+
+    const buttonElements = containerRef.current.querySelectorAll("button");
+    const activeButton = buttonElements[activeIndex] as HTMLElement;
+
+    if (activeButton) {
+      const offsetTop =
+        activeButton.offsetTop +
+        activeButton.offsetHeight / 2 -
+        THICK_LINE_HEIGHT / 2;
+      setLineTop(offsetTop);
+    }
+  }, [activeSection]);
+
+  const getHeaderColor = (sectionId: string, isActive: boolean) => {
+    if (forceWhiteSections.includes(activeSection)) return "#FFFFFF";
+    if (isActive) return activeColors[sectionId];
+    return "#000000";
+  };
+
+  const thickLineColor = activeColors[activeSection];
+  const thinLineColor = forceWhiteSections.includes(activeSection)
     ? "#FFFFFF"
-    : inProfOrLead
+    : activeSection === "experience"
     ? "#FFFFFF"
-    : inEducation
-    ? "#A0BEF4"
-    : sectionColors[activeParent]?.line ?? "#000";
+    : "#000000";
 
   return (
     <nav
-      className={`fixed top-0 left-0 h-screen flex flex-col items-start justify-center font-sunday text-left z-50 w-[14vw] px-2 transition-transform duration-700 ${
-        showNav ? "translate-x-0" : "-translate-x-full"
+      className={`fixed left-0 top-0 h-screen w-[14vw] flex flex-col justify-center items-start px-6 z-50 transform transition-transform duration-500 ${
+        visible ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
       }`}
     >
-      <div className="cursor-clicking hover:cursor-clicking relative left-2 flex flex-col items-start gap-4">
-        {/* Vertical line */}
+      <div ref={containerRef} className="relative flex flex-col gap-4">
+        {/* Thin vertical line */}
         <div
-          className="absolute transform -translate-x-1/2 h-full w-px transition-colors duration-300"
-          style={{ backgroundColor: lineColor }}
-        >
-          <div
-            className="w-1 transition-all duration-300"
-            style={{
-              height: `${((parentIndexSafe + 1) / navSections.length) * 100}%`,
-              backgroundColor: lineColor,
-            }}
-          />
-        </div>
+          className="absolute left-2 -translate-x-1/2 w-[2px] h-full transition-colors duration-300"
+          style={{ backgroundColor: thinLineColor }}
+        />
 
+        {/* Thick sliding line */}
+        <div
+          className="absolute left-2 -translate-x-1/2 w-[4px] h-[20px] rounded-none transition-all duration-300"
+          style={{
+            top: `${lineTop}px`,
+            backgroundColor: thickLineColor,
+          }}
+        />
+
+        {/* Nav buttons */}
         {navSections.map((section) => {
-          const isActiveParent = activeParent === section.id;
-          let parentLinkColor = "#000000";
-
-          if (inTrulyOrBio) parentLinkColor = "#FFFFFF";
-          else if (inProfOrLead) parentLinkColor = "#FFFFFF";
-          else if (inEducation)
-            parentLinkColor =
-              section.id === "experience" ? "#A0BEF4" : "#000000";
-          else
-            parentLinkColor = isActiveParent
-              ? sectionColors[section.id]?.text ?? "#000"
-              : sectionColors[section.id]?.rest ?? "#000";
-
-          const parentClass = isActiveParent
-            ? "scale-110 text-2xl font-bold px-6 transition-transform duration-300 ease-in-out"
-            : "text-base transition-transform duration-300 ease-in-out";
-
+          const isActive = section.id === activeSection;
           return (
-            <div
+            <button
               key={section.id}
-              className="transition-transform duration-300 ease-in-out hover:scale-105 flex flex-col"
+              onClick={() =>
+                document
+                  .getElementById(section.id)
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="relative py-2 px-4 pl-4 bg-transparent text-left border-none font-sunday transition-transform duration-300"
+              style={{
+                color: getHeaderColor(section.id, isActive),
+                fontWeight: isActive ? 800 : 400,
+                transform: `scale(${isActive ? 1.08 : 1})`,
+              }}
+              onMouseEnter={(e) => {
+                (
+                  e.currentTarget as HTMLButtonElement
+                ).style.transform = `scale(${isActive ? 1.12 : 1.05})`;
+              }}
+              onMouseLeave={(e) => {
+                (
+                  e.currentTarget as HTMLButtonElement
+                ).style.transform = `scale(${isActive ? 1.08 : 1})`;
+              }}
             >
-              <a
-                href={`#${section.id}`}
-                onClick={() => {
-                  if (section.id === "experience") {
-                    setActiveParent("experience");
-                    setActiveSub("professional");
-                  } else {
-                    setActiveParent(section.id);
-                    setActiveSub(null);
-                  }
-                }}
-                className={`relative z-10 py-3 px-4 ${parentClass} cursor-clicking`}
-                style={{ color: parentLinkColor }}
-              >
-                {section.label}
-              </a>
-
-              {section.children && (
-                <div className="ml-6 flex flex-col gap-2">
-                  {section.children.map((child) => {
-                    const isActiveSub = activeSub === child.id;
-                    let childColor = "#000000";
-
-                    if (inTrulyOrBio) childColor = "#FFFFFF";
-                    else if (child.id === "biography" && isActiveSub)
-                      childColor = "#000000";
-                    else if (inProfOrLead) childColor = "#FFFFFF";
-                    else if (inEducation)
-                      childColor = isActiveSub ? "#A0BEF4" : "#000000";
-                    else
-                      childColor = isActiveSub
-                        ? sectionColors[child.id]?.text ?? "#000"
-                        : sectionColors[section.id]?.rest ?? "#000";
-
-                    const childClass = isActiveSub
-                      ? "font-bold scale-105 transition-transform duration-300 ease-in-out"
-                      : "opacity-70 transition-transform duration-300 ease-in-out";
-
-                    return (
-                      <a
-                        key={child.id}
-                        href={`#${
-                          child.id === "professional" ? "experience" : child.id
-                        }`}
-                        onClick={() => {
-                          setActiveParent(section.id);
-                          setActiveSub(child.id);
-                        }}
-                        className={`text-sm ${childClass} cursor-clicking transition-transform duration-300 ease-in-out hover:scale-105`}
-                        style={{ color: childColor }}
-                      >
-                        {child.label}
-                      </a>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
+              {section.label}
+            </button>
           );
         })}
       </div>

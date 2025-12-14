@@ -1,12 +1,12 @@
 import React from "react";
-import awardsBg from "/media/images/holo-bg.jpg"; // adjust path if needed
+import awardsBg from "/media/images/holo-bg.webp"; // adjust path if needed
 import leafIcon from "/media/icons/leaf.svg";
 
 const Awards: React.FC = () => {
   return (
     <section
       id="awards"
-      className="relative w-screen h-[50vh] flex flex-col items-center justify-center overflow-hidden"
+      className="relative w-[100svw] h-[50svh] flex flex-col items-center justify-center overflow-hidden "
       style={{
         backgroundImage: `url(${awardsBg})`,
         backgroundSize: "cover",
@@ -19,7 +19,7 @@ const Awards: React.FC = () => {
       <div className="absolute inset-0 bg-black/40 z-10"></div>
 
       {/* Content */}
-      <div className="w-screen h-auto bg-white/80 z-20 flex flex-col text-center justify-center px-8 py-4">
+      <div className="w-full bg-white/80 z-20 flex flex-col text-center justify-center px-8 py-4">
         <h2 className="text-7xl font-sunday font-semibold mb-4 text-center text-black">
           AWARDS & ACCOLADES
         </h2>
@@ -70,7 +70,7 @@ const Awards: React.FC = () => {
               </div>
 
               {/* Right leaf */}
-              <img src={leafIcon} alt="leaf" className="h-[14vh] ml-2" />
+              <img src={leafIcon} alt="leaf" className="h-[14svh] ml-2" />
             </div>
           ))}
         </div>
