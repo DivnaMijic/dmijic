@@ -4,8 +4,9 @@ const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="h-[100svh] w-[100svw] cursor-browsingWhite flex flex-col items-center justify-center box-border bg-hero-pattern bg-cover bg-center relative bg-[url(/public/media/images/photography/photo1.webp)]"
+      className="h-[100svh] w-[100svw] cursor-browsingWhite flex flex-col items-center justify-center box-border bg-hero-pattern bg-cover bg-center relative bg-[url(/media/images/photography/photo3.webp)]"
     >
+      <div className="absolute inset-0 bg-black/30 z-0"></div>
       <ul className="flex gap-8 py-4 pr-8 justify-end text-white font-playfair z-10 absolute top-0 left-0 w-full">
         {["about", "works", "experience", "biography", "contact"].map(
           (item) => {

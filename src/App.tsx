@@ -21,7 +21,7 @@ function App() {
       <About />
       <Works />
       <Gallery />
-      {/* <Awards /> */}
+      <Awards />
       <Experience />
       <Truly />
       <Biography />
