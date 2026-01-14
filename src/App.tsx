@@ -21,8 +21,8 @@ function App() {
       <About />
       <Works />
       <Gallery />
-      <Awards />
       <Experience />
+      <Awards />
       <Truly />
       <Biography />
       <Contact />

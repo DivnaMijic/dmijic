@@ -6,7 +6,7 @@ const Awards: React.FC = () => {
   return (
     <section
       id="awards"
-      className="relative w-[100svw] h-[50svh] flex flex-col items-center justify-center overflow-hidden "
+      className="relative w-[100svw] h-[100svh] flex flex-col items-center justify-center overflow-hidden "
       style={{
         backgroundImage: `url(${awardsBg})`,
         backgroundSize: "cover",

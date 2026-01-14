@@ -16,7 +16,7 @@ const activeColors: Record<string, string> = {
   contact: "#ECD586",
 };
 
-const forceWhiteSections = ["experience", "truly"];
+const forceWhiteSections = ["experience", "truly", "biography", "awards"];
 const THICK_LINE_HEIGHT = 20;
 
 const SideNav: React.FC = () => {
@@ -28,55 +28,14 @@ const SideNav: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       const windowHeight = window.innerHeight;
-
-      // Check About visibility (50%)
-      const aboutEl = document.getElementById("about");
-      const contactEl = document.getElementById("contact");
-
-      if (aboutEl && contactEl) {
-        const aboutRect = aboutEl.getBoundingClientRect();
-        const contactRect = contactEl.getBoundingClientRect();
-
-        const aboutVisible =
-          aboutRect.top + aboutRect.height * 0.5 < windowHeight;
-        const contactHidden = contactRect.top + contactRect.height * 0.5 < 0;
-
-        setVisible(aboutVisible && !contactHidden);
-      }
-
-      // Update active section
-      const midPoint = window.scrollY + windowHeight * 0.4;
-      for (const section of navSections) {
-        const el = document.getElementById(section.id);
-        if (!el) continue;
-        const top = el.offsetTop;
-        const bottom = top + el.offsetHeight;
-        if (midPoint >= top && midPoint < bottom) {
-          setActiveSection(section.id);
-          break;
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const windowHeight = window.innerHeight;
       const windowWidth = window.innerWidth;
 
-      // Hide nav entirely if screen is too small
       if (windowWidth < 1024) {
-        // adjust 1024px as needed
         setVisible(false);
         return;
       }
 
-      // Check About visibility (50%)
+      // --- NAV VISIBILITY LOGIC ---
       const aboutEl = document.getElementById("about");
       const contactEl = document.getElementById("contact");
 
@@ -91,22 +50,50 @@ const SideNav: React.FC = () => {
         setVisible(aboutVisible && !contactHidden);
       }
 
-      // Update active section
+      // --- ACTIVE SECTION LOGIC ---
       const midPoint = window.scrollY + windowHeight * 0.4;
-      for (const section of navSections) {
+      let foundActive = false;
+
+      const sectionsToCheck = [
+        ...navSections,
+        { id: "biography" },
+        { id: "awards" },
+      ];
+      for (const section of sectionsToCheck) {
         const el = document.getElementById(section.id);
         if (!el) continue;
         const top = el.offsetTop;
         const bottom = top + el.offsetHeight;
         if (midPoint >= top && midPoint < bottom) {
           setActiveSection(section.id);
+          foundActive = true;
           break;
         }
+      }
+
+      // --- GALLERY CHECK (not in nav) ---
+      const galleryEl = document.getElementById("gallery");
+      if (galleryEl) {
+        const galleryRect = galleryEl.getBoundingClientRect();
+        const seventyPercent = windowHeight * 0.7;
+
+        const topVisible =
+          galleryRect.top < windowHeight - seventyPercent &&
+          galleryRect.bottom > seventyPercent;
+
+        if (topVisible) {
+          setActiveSection("__gallery__");
+          foundActive = true;
+        }
+      }
+
+      if (!foundActive) {
+        setActiveSection("about");
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleScroll); // update on resize
+    window.addEventListener("resize", handleScroll);
     handleScroll();
 
     return () => {
@@ -115,17 +102,20 @@ const SideNav: React.FC = () => {
     };
   }, []);
 
-  // Update thick line position
+  // --- THICK LINE POSITION ---
   useEffect(() => {
     if (!containerRef.current) return;
 
-    const activeIndex = navSections.findIndex((s) => s.id === activeSection);
-    if (activeIndex === -1) return;
+    // If gallery, force thick line to Works
+    const activeIndex =
+      activeSection === "__gallery__"
+        ? navSections.findIndex((s) => s.id === "works")
+        : navSections.findIndex((s) => s.id === activeSection);
 
     const buttonElements = containerRef.current.querySelectorAll("button");
-    const activeButton = buttonElements[activeIndex] as HTMLElement;
 
-    if (activeButton) {
+    if (activeIndex !== -1 && buttonElements[activeIndex]) {
+      const activeButton = buttonElements[activeIndex] as HTMLElement;
       const offsetTop =
         activeButton.offsetTop +
         activeButton.offsetHeight / 2 -
@@ -134,16 +124,26 @@ const SideNav: React.FC = () => {
     }
   }, [activeSection]);
 
+  // --- COLOR LOGIC ---
   const getHeaderColor = (sectionId: string, isActive: boolean) => {
+    if (activeSection === "__gallery__") {
+      // Gallery looks like Works
+      return isActive || sectionId === "works"
+        ? activeColors["works"]
+        : "#000000";
+    }
     if (forceWhiteSections.includes(activeSection)) return "#FFFFFF";
     if (isActive) return activeColors[sectionId];
     return "#000000";
   };
 
-  const thickLineColor = activeColors[activeSection];
+  const thickLineColor =
+    activeSection === "__gallery__"
+      ? activeColors["works"]
+      : activeColors[activeSection];
+
+  // Thin line stays black even in gallery
   const thinLineColor = forceWhiteSections.includes(activeSection)
-    ? "#FFFFFF"
-    : activeSection === "experience"
     ? "#FFFFFF"
     : "#000000";
 
