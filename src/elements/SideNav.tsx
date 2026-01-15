@@ -75,7 +75,7 @@ const SideNav: React.FC = () => {
       const galleryEl = document.getElementById("gallery");
       if (galleryEl) {
         const galleryRect = galleryEl.getBoundingClientRect();
-        const seventyPercent = windowHeight * 0.7;
+        const seventyPercent = windowHeight * 0.4;
 
         const topVisible =
           galleryRect.top < windowHeight - seventyPercent &&
