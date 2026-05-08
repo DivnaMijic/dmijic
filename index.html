@@ -1,20 +1,103 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="hr">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="media/icons/logo.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Divna Mijić</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <title>DMijic</title>
-  <script type="module" crossorigin src="/dmijic/assets/index-C7Pz_5Qi.js"></script>
-  <link rel="stylesheet" crossorigin href="/dmijic/assets/index-D7NMYHdT.css">
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 1000px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        p {
+            font-size: 1.125rem;
+            color: #555555;
+            margin-bottom: 3rem;
+        }
+
+        .button {
+            position: relative;
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            font-weight: 700;
+            color: #000000;
+            border: 2px solid #000000;
+            background: transparent;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-right: 1rem;
+        }
+
+        /* Hover shadow & translation */
+        .button:hover {
+            transform: translate(-2px, -2px);
+            background-color: #000000;
+            color: #ffffff;
+            box-shadow: 4px 4px 0 0 #EAA3F4;
+        }
+
+        .button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .button::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: translateX(-100%) skewX(12deg);
+            transition: transform 0.7s ease-in-out;
+            z-index: 0;
+        }
+
+        .button:hover::before {
+            transform: translateX(100%) skewX(12deg);
+        }
+    </style>
 </head>
 
 <body>
-  <div id="root"></div>
+    <div class="container">
+        <h1>SITE UNDER CONSTRUCTION<br>/ WEB STRANICA U IZGRADNJI
+        </h1>
+        <p>
+            The developer is working hard to update this site. In the meantime, feel free to reach out or check out...
+            <br>/ Trenutno marljivo radim na ažuriranju ove stranice. U međuvremenu se možeš javiti ili pogledati...
+        </p>
+        <a href="https://www.linkedin.com/in/divnamijic/" target="_blank" class="button">
+            <span>LinkedIn</span>
+        </a>
+        <a href="mailto:divna.mijic@gmail.com" target="_blank" class="button">
+            <span>Gmail</span>
+        </a>
+        <a href="https://divnamijic.github.io/divnamijic/" target="_blank" class="button">
+            <span>GitHub</span>
+        </a>
+    </div>
 </body>
 
 </html>
